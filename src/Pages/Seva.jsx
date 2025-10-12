@@ -1,6 +1,6 @@
 import React from 'react'
 import SevaCard from '../Components/SevaCard'
-import peda from '../Assets/logo.jpg'
+import peda from '../assets/logo.jpg'
 import uthapyanbhog from '../assets/uthapyanbhog.jpg'
 
 function Seva() {
