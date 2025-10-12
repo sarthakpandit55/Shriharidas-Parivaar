@@ -1,7 +1,7 @@
 import React from 'react'
 
 import Card from '../Components/StoreCard'
-import peda from '../Assets/logo.jpg'
+import peda from '../assets/logo.jpg'
 
 function Store() {
   return (
