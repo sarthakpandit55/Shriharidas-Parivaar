@@ -7,7 +7,7 @@ function Store() {
   return (
     <>
     <div className="container mx-auto my-30 text-center flex flex-col">
-            <h1 className='text-4xl font-semibold text-amber-600'><u>Store</u></h1>
+            <h1 className='text-4xl font-semibold text-amber-600'><u>Store</u> / <u>स्टोर</u></h1>
     
             <div className="flex justify-center mt-10 gap-10 flex-wrap bg-gray-200 py-10 rounded-lg">
                 

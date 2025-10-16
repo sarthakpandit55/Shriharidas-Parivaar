@@ -1,54 +1,58 @@
 import React,  { useState } from "react";
-import heroBg from "../assets/BihariJi3.jpg";
-import AboutImg from "../assets/BihariJi.jpg"
+import { Link } from "react-router-dom";
+
+
+// component imports
 import TextType from './TextType';
 import ScrollVelocity from './ScrollVelocity';
-import CircularGallery from './CircularGallery'
-import { FaLanguage } from 'react-icons/fa6';
-import { Link } from "react-router-dom";
-import laddu from '../assets/laddu1.jpg'
+import SevaGallery from "./SevaGallery";
+import StoreGallery from "./StoreGallery";
 import Contact from "../Pages/Contact";
+
+
+// icon imports
+import { FaLanguage } from 'react-icons/fa6';
+
+
+// imports for images
+import heroBg from "../assets/BihariJi3.jpg";
+import AboutImg from "../assets/BihariJi.jpg"
 import poster from '../assets/poster.jpg'
 
-function Hero() {
 
-  
+
+
+
+function Hero() {
   const [chanLang, setchanLang] = useState(false);
 
-  return (
+return (
 <>
-    {/* Hero */}
+{/* Hero */}
+
+
     <section className="relative h-screen w-full flex items-center justify-center text-center text-white" style={{backgroundImage:`url(${heroBg})`,backgroundSize: "cover",backgroundPosition: "center",}}>
-  <div className="absolute inset-0 bg-black/40"></div> {/* overlay */}
-  <div className="relative z-10 px-6">
-    <h1 className="text-4xl md:text-6xl font-bold mb-4 drop-shadow-lg">
-      Welcome to Shriharidas Parivaar
-    </h1>
-    <p className="text-lg md:text-2xl font-semibold mb-10 drop-shadow-md"> 
-      <TextType 
-        text={["Spreading devotion", "positivity", "togetherness ✨"]}
-        typingSpeed={75}
-        pauseDuration={1500}
-        showCursor={true}
-        cursorCharacter="|"
-      />
-    </p>
-    <a href="#about" className="px-6 py-3 bg-amber-500/90 hover:bg-amber-500/100 text-white font-semibold rounded-lg shadow-lg transition duration-300">
-      Learn More
-    </a>
-  </div>
-</section>
+
+      <div className="absolute inset-0 bg-black/40"></div> {/* overlay */}
+
+      <div className="relative z-10 px-6">
+        <h1 className="text-4xl md:text-6xl font-bold mb-4 drop-shadow-lg">
+          Welcome to Shriharidas Parivaar
+        </h1>
+        <p className="text-lg md:text-2xl font-semibold mb-10 drop-shadow-md"> 
+          <TextType text={["Spreading devotion", "positivity", "togetherness ✨"]} typingSpeed={75} pauseDuration={1500} showCursor={true} cursorCharacter="|"/>
+        </p>
+        <a href="#about" className="px-6 py-3 bg-amber-500/90 hover:bg-amber-500/100 text-white font-semibold rounded-lg shadow-lg transition duration-300">
+        Learn More
+        </a>
+      </div>
+    </section>
 
 
 {/* Circular Text */}
 
   <div className="my-40 text-amber-500 text-shadow-amber-600 ">
-    <ScrollVelocity
-      texts={['कुंज बिहारी श्री हरिदास || Kunj Bihari Shrihari Das ||', 'Kunj Bihari Shrihari Das || कुंज बिहारी श्री हरिदास ||']} 
-      velocity={140} 
-      className="custom-scroll-text py-3 my-3"
-      
-    />
+    <ScrollVelocity texts={['कुंज बिहारी श्री हरिदास || Kunj Bihari Shrihari Das ||', 'Kunj Bihari Shrihari Das || कुंज बिहारी श्री हरिदास ||']} velocity={140} className="custom-scroll-text py-3 my-3"/>
   </div>
 
 
@@ -56,7 +60,7 @@ function Hero() {
 
 <div className="container mx-auto my-30 px-6" id="about">
     <div className="my-10">
-      <p className="text-4xl font-semibold text-amber-500"><u>Shri Banke Bihari</u></p>
+      <p className="text-4xl font-semibold text-amber-500"><u>Shri Banke Bihari</u> / <u>श्री बांके बिहारी</u></p>
     </div>
 
     <div className="box flex flex-col lg:flex-row md:flex-row justify-center items-center gap-10 lg:gap-20 md:gap-16 px-6 shadow-2xl p-6 rounded-lg bg-white shadow-amber-600 ">
@@ -102,7 +106,6 @@ function Hero() {
 
           ‘The path for the exclusive lover of rasa is twisted.’ <Link to="/about" className="text-blue-500">...Read more</Link>
         </p>)
-
         }
       </div>
     </div>
@@ -118,7 +121,7 @@ function Hero() {
   </div>
 
   <div className="text-md lg:text-4xl md:text-2xl font-semibold w-2/5 text-center text-gray-500">
-    Bihar Punhami
+    Bihar Punchami
   </div>
 </div>
 
@@ -127,12 +130,12 @@ function Hero() {
 
 <div className="my-46" id="seva">
   <div className="text-center">
-    <h1 className="text-4xl font-semibold text-amber-600"><u>Seva</u></h1>
+    <h1 className="text-4xl font-semibold text-amber-600"><u>Seva</u> / <u>सेवाएं</u></h1>
   </div>
 
     {/* Circular Cards */}
   <div className="lg:h-[550px] md:h-[500px] h-[300px] relative">
-    <CircularGallery bend={3} textColor="#111111" borderRadius={0.05} scrollEase={0.02}/>
+    <SevaGallery bend={3} textColor="#111111" borderRadius={0.05} scrollEase={0.02}/>
   </div>
 
   {/* button */}
@@ -148,12 +151,12 @@ function Hero() {
 
 <div className="my-46" id="store">
   <div className="text-center">
-    <h1 className="text-4xl font-semibold text-amber-600"><u>Store</u></h1>
+    <h1 className="text-4xl font-semibold text-amber-600"><u>Store</u> / <u>स्टोर</u></h1>
   </div>
 
     {/* Circular Cards */}
   <div className="lg:h-[550px] md:h-[500px] h-[300px] relative">
-    <CircularGallery bend={3} textColor="#111111" borderRadius={0.05} scrollEase={0.02}/>
+    <StoreGallery bend={3} textColor="#111111" borderRadius={0.05} scrollEase={0.02}/>
   </div>
 
   {/* button */}

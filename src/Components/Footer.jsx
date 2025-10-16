@@ -1,6 +1,7 @@
 import React from "react";
 import { FaWhatsapp, FaInstagram, FaYoutube } from "react-icons/fa6";
-import laddu from "../assets/laddu1.jpg";
+import laddu from "../assets/laddu.jpg";
+import himanshu from "../assets/himanshu.jpg";
 import { Link } from "react-router-dom";
 
 function Footer() {
@@ -14,8 +15,9 @@ function Footer() {
           {/* card1 */}
           <div className="flex flex-col sm:flex-row justify-evenly items-center bg-gray-800 p-6 rounded-xl shadow-md gap-6">
             {/* Image */}
-            <div className="flex flex-col justify-center items-center"><img src={laddu} alt="Tushar Bihari Goswami" className="object-cover rounded-full w-24 h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 shadow"/>
-              <p className="text-sm font-semibold pt-3">Tushar Bihari Goswami <br /> (Laddu Bihari Goswami)</p>
+            <div className="flex flex-col justify-center text-center items-center">
+              <img src={himanshu} alt="Kunal Bihari Goswami" className="object-cover rounded-full w-24 h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 shadow"/>
+              <p className="text-sm font-semibold pt-3">Kunal Bihari Goswami <br /> ( Himanshu Bihari Goswami )</p>
             </div>
 
             {/* Social links */}
@@ -44,9 +46,9 @@ function Footer() {
           {/* card2 */}
           <div className="flex flex-col sm:flex-row justify-evenly items-center bg-gray-800 p-6 rounded-xl shadow-md gap-6">
             {/* Image */}
-            <div className="flex flex-col justify-center items-center">
+            <div className="flex flex-col justify-center text-center  items-center">
               <img src={laddu} alt="Tushar Bihari Goswami" className="object-cover rounded-full w-24 h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 shadow"/>
-              <p className="text-sm font-semibold pt-3">Tushar Bihari Goswami</p>
+              <p className="text-sm font-semibold pt-3">Tushar Bihari Goswami <br />( Laddu Bihari Goswami )</p>
             </div>
             {/* Social links */}
             <div className="flex flex-col gap-3 text-sm mt-4 sm:mt-0">

@@ -3,7 +3,8 @@ import { FaWhatsapp } from "react-icons/fa6";
 import { FaLocationDot } from 'react-icons/fa6';
 import { FaInstagram } from "react-icons/fa6";
 import { FaYoutube } from "react-icons/fa6";
-import laddu from "../assets/laddu1.jpg";
+import laddu from "../assets/laddu.jpg";
+import himanshu from "../assets/himanshu.jpg";
 
 
 function Contact() {
@@ -12,13 +13,13 @@ function Contact() {
 
     {/* Contact  */}
     <div className='container mx-auto my-5 p-5 mt-22'>
-        <h1 className='text-3xl font-bold bg-amber-600 p-4 w-full rounded-xl'>Contact Us :-</h1>
+        <h1 className='text-3xl font-bold bg-amber-600 p-4 w-full rounded-xl'>Contact Us / संपर्क करें :-</h1>
         
         {/* card 1 */}
         <div className="flex flex-col sm:flex-row justify-evenly items-center p-6 gap-6 my-20">
           {/* Image */}
           <div className="flex flex-col justify-center items-center">
-            <img src={laddu} alt="Tushar Bihari Goswami" className="object-cover rounded-full w-54 h-54 md:w-78 md:h-78 lg:w-92 lg:h-92 shadow"/>
+            <img src={himanshu} alt="Tushar Bihari Goswami" className="object-cover rounded-full w-54 h-54 md:w-78 md:h-78 lg:w-92 lg:h-92 shadow"/>
           <p className="text-xl font-semibold pt-3 text-center">Kunal Bihari Goswami <br /> ( Himanshu Bihari Goswami )</p>
           </div>
           {/* Social links */}

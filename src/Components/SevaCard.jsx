@@ -27,9 +27,9 @@ export default function SevaCard({ product, onAdd }) {
 
         {/* small meta */}
         <div className="mt-3 flex items-center justify-between text-xs text-gray-500">
-          <span>Free shipping over ₹999</span>
+          {/* <span>Free shipping over ₹999</span>
           <span>•</span>
-          <span>30 days returns</span>
+          <span>30 days returns</span> */}
         </div>
       </div>
     </article>

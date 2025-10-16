@@ -2,51 +2,63 @@ import React, { useState } from "react";
 import { useParams, Link } from "react-router-dom";
 
 
-// image imports
-import laddu from "../assets/laddu.jpg";
+// holi imports
+import holi_video_1 from "../assets/holi/holi-video-1.mp4";
+
+// diwali imports
 import diwali from "../assets/diwali-1.jpg";
-import hariyali_teej_1 from "../assets/hariyali-teej-1.jpg";
-import hariyali_teej_2 from "../assets/hariyali-teej-2.jpg";
-import hariyali_teej_3 from "../assets/hariyali-teej-3.jpg";
-import hariyali_teej_4 from "../assets/hariyali-teej-4.jpg";
-import hariyali_teej_5 from "../assets/hariyali-teej-5.jpg";
-import hariyali_teej_6 from "../assets/hariyali-teej-6.jpg";
-import hariyali_teej_7 from "../assets/hariyali-teej-7.jpg";
-import hariyali_teej_8 from "../assets/hariyali-teej-8.jpg";
-import fool_Bangla_1 from "../assets/fool-bangla-1.jpg";
-import fool_Bangla_2 from "../assets/fool-bangla-2.jpg";
-import fool_Bangla_3 from "../assets/fool-bangla-3.jpg";
-import fool_Bangla_4 from "../assets/fool-bangla-4.jpg";
-import fool_Bangla_5 from "../assets/fool-bangla-5.jpg";
-import sharad_purnima_1 from "../assets/sharad-purnima-1.jpg";
-import sharad_purnima_2 from "../assets/sharad-purnima-2.jpg";
-import sharad_purnima_3 from "../assets/sharad-purnima-3.jpg";
-import sharad_purnima_4 from "../assets/sharad-purnima-4.jpg";
-import radha_astami_2 from "../assets/radha-astami-2.jpg";
-import radha_astami_3 from "../assets/radha-astami-3.jpg";
+
+// hariyali teej imports
+import hariyali_teej_1 from "../assets/hariyali-teej/hariyali-teej-1.jpg";
+import hariyali_teej_2 from "../assets/hariyali-teej/hariyali-teej-2.jpg";
+import hariyali_teej_3 from "../assets/hariyali-teej/hariyali-teej-3.jpg";
+import hariyali_teej_4 from "../assets/hariyali-teej/hariyali-teej-4.jpg";
+import hariyali_teej_5 from "../assets/hariyali-teej/hariyali-teej-5.jpg";
+import hariyali_teej_6 from "../assets/hariyali-teej/hariyali-teej-6.jpg";
+import hariyali_teej_7 from "../assets/hariyali-teej/hariyali-teej-7.jpg";
+import hariyali_teej_8 from "../assets/hariyali-teej/hariyali-teej-8.jpg";
+import teej_Video_1 from "../assets/hariyali-teej/hariyali-teej-video-1.mp4";
+
+// fool bangla imports
+import fool_Bangla_1 from "../assets/fool-bangla/fool-bangla-1.jpg";
+import fool_Bangla_2 from "../assets/fool-bangla/fool-bangla-2.jpg";
+import fool_Bangla_3 from "../assets/fool-bangla/fool-bangla-3.jpg";
+import fool_Bangla_4 from "../assets/fool-bangla/fool-bangla-4.jpg";
+import fool_Bangla_5 from "../assets/fool-bangla/fool-bangla-5.jpg";
+
+// sharad purnima imports
+import sharad_purnima_1 from "../assets/sharad-purnima/sharad-purnima-1.jpg";
+import sharad_purnima_2 from "../assets/sharad-purnima/sharad-purnima-2.jpg";
+import sharad_purnima_3 from "../assets/sharad-purnima/sharad-purnima-3.jpg";
+import sharad_purnima_4 from "../assets/sharad-purnima/sharad-purnima-4.jpg";
+
+// radha astami imports
+import radha_astami_2 from "../assets/radha-astami/radha-astami-2.jpg";
+import radha_astami_3 from "../assets/radha-astami/radha-astami-3.jpg";
+import radha_astami_Video_1 from "../assets/radha-astami/radha-astami-video-1.mp4";
+
+// janmashtami imports
+import janmashtami_video_1 from "../assets/janmashtami/janmashtami-video-1.mp4";
 
 
-// video imports
-import teej_Video_1 from "../assets/hariyali-teej-video-1.mp4";
-import radha_astami_Video_1 from "../assets/radha-astami-video-1.mp4";
 
 export default function EventPage() {
   const { eventName } = useParams();
   const [selectedMedia, setSelectedMedia] = useState(null);
 
   const eventMedia = {
-    diwali: [
+    "holi":[
+      {type: "video", src: holi_video_1},
+    ],
+    "diwali": [
       { type: "image", src: diwali },
-      { type: "image", src: "/images/diwali2.jpg" },
-      { type: "image", src: "/images/diwali3.jpg" },
     ],
     "janmashtami": [
-      { type: "image", src: diwali },
-      { type: "image", src: "/images/janmashtami2.jpg" },
-      { type: "image", src: "/images/janmashtami3.jpg" },
+      { type: "video", src: janmashtami_video_1 },
     ],
     "hariyali-teej": [
       { type: "image", src: hariyali_teej_1 },
+      { type: "video", src: teej_Video_1 }, 
       { type: "image", src: hariyali_teej_2 },
       { type: "image", src: hariyali_teej_3 },
       { type: "image", src: hariyali_teej_4 },
@@ -54,7 +66,6 @@ export default function EventPage() {
       { type: "image", src: hariyali_teej_6 },
       { type: "image", src: hariyali_teej_7 },
       { type: "image", src: hariyali_teej_8 },
-      { type: "video", src: teej_Video_1 }, 
     ],
     "fool bangla": [
       { type: "image", src: fool_Bangla_1 },
@@ -97,7 +108,7 @@ export default function EventPage() {
 
       <section className={`container mx-auto p-6 text-center ${selectedMedia ? "blur-sm" : ""}`}>
         <h1 className="text-3xl font-bold mb-6 capitalize text-amber-600">
-          <u>{eventName} Celebration</u>
+          <u>{eventName} Celebration</u> 
         </h1>
 
         {mediaList.length > 0 ? (
