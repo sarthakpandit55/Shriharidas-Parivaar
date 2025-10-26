@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import SEO from "../Components/SEO";
 
 // image imports
 import diwali from "../assets/BihariJi4.jpg";
@@ -23,6 +24,19 @@ export default function Gallery() {
 
 
   return (
+
+    <>
+
+    {/* Meta tags */}
+    <SEO
+    title="Gallery"
+    description="Browse the Shri Haridas Parivaar gallery showcasing festivals like Holi, Janmashtami, Diwali, Hariyali Teej, Sharad Purnima, Radha Astami, and Fool Bangla."
+    keywords="Shri Haridas Parivaar Gallery, Vrindavan Festivals, Holi Photos, Janmashtami Celebration, Diwali Events, Hariyali Teej, Sharad Purnima, Radha Astami, Spiritual Images"
+    />
+
+    
+    {/* galley */}
+    
     <div className="container mx-auto my-32">
       <h1 className="text-4xl font-semibold text-center text-amber-600">
         <u>Gallery</u> / <u>गैलरी</u>
@@ -45,5 +59,6 @@ export default function Gallery() {
         ))}
       </div>
     </div>
+    </>
   );
 }

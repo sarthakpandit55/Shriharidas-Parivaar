@@ -5,11 +5,22 @@ import { FaInstagram } from "react-icons/fa6";
 import { FaYoutube } from "react-icons/fa6";
 import laddu from "../assets/laddu.jpg";
 import himanshu from "../assets/himanshu.jpg";
+import SEO from "../Components/SEO";
 
 
 function Contact() {
   return (
     <>
+
+    {/* meta tag */}
+
+    <SEO
+    title="Contact"
+    description="Get in touch with Shri Haridas Parivaar via WhatsApp, Instagram, YouTube or our contact form for seva requests and spiritual guidance."
+    keywords="Shri Haridas Parivaar Contact, WhatsApp, Instagram, YouTube, Vrindavan Temple Contact, Seva Requests, Spiritual Guidance"
+    />
+
+
 
     {/* Contact  */}
     <div className='container mx-auto my-5 p-5 mt-22'>

@@ -3,10 +3,22 @@ import { FaWhatsapp, FaInstagram, FaYoutube } from "react-icons/fa6";
 import laddu from "../assets/laddu.jpg";
 import himanshu from "../assets/himanshu.jpg";
 import { Link } from "react-router-dom";
+import SEO from "./SEO.jsx";
 
 function Footer() {
   return (
     <>
+
+      {/* meta tags */}
+
+      <SEO
+      title="Shri Haridas Parivaar"
+      description="Official website of Shri Haridas Parivaar — explore seva, store, gallery, events, and connect with devotees. Stay updated with spiritual activities and temple events."
+      keywords="Shri Haridas Parivaar, Vrindavan, Seva, Mandir, Temple Events, Devotional Items, Gallery, Spiritual Activities"
+      />
+
+
+      {/* Main Footer */}
       <div className="bg-gray-900 text-white flex flex-col lg:flex-row justify-between items-start lg:items-center py-10 px-5 sm:px-20 w-full gap-10">
         
         {/* First */}

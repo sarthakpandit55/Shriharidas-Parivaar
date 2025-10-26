@@ -8,6 +8,7 @@ import ScrollVelocity from './ScrollVelocity';
 import SevaGallery from "./SevaGallery";
 import StoreGallery from "./StoreGallery";
 import Contact from "../Pages/Contact";
+import SEO from "./SEO.jsx";
 
 
 // icon imports
@@ -28,8 +29,18 @@ function Hero() {
 
 return (
 <>
-{/* Hero */}
+{/* Meta tags */}
 
+    <SEO
+    title="Home"
+    description="Welcome to the official Shri Haridas Parivaar website — dedicated to devotion, seva, and spreading the teachings of Shri Haridas Ji."
+    keywords="Shri Haridas, Vrindavan, Bhakti, Haridas Parivaar, Seva, Mandir"
+    />
+
+
+
+
+{/* Hero */}
 
     <section className="relative h-screen w-full flex items-center justify-center text-center text-white" style={{backgroundImage:`url(${heroBg})`,backgroundSize: "cover",backgroundPosition: "center",}}>
 
@@ -42,9 +53,6 @@ return (
         <p className="text-lg md:text-2xl font-semibold mb-10 drop-shadow-md"> 
           <TextType text={["Spreading devotion", "positivity", "togetherness ✨"]} typingSpeed={75} pauseDuration={1500} showCursor={true} cursorCharacter="|"/>
         </p>
-        <a href="#about" className="px-6 py-3 bg-amber-500/90 hover:bg-amber-500/100 text-white font-semibold rounded-lg shadow-lg transition duration-300">
-        Learn More
-        </a>
       </div>
     </section>
 

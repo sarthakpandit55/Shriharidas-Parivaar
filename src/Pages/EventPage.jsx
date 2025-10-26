@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useParams, Link } from "react-router-dom";
-
+import SEO from "../Components/SEO";
 
 // holi imports
 import holi_video_1 from "../assets/holi/holi-video-1.mp4";
@@ -102,6 +102,20 @@ export default function EventPage() {
 
   return (
     <>
+
+    {/* meta tag */}
+
+    <SEO
+    title={`${eventName} Celebration`}
+    description={`Explore the ${eventName} celebration at Shri Haridas Parivaar with photos, videos, and spiritual event highlights.`}
+    keywords={`Shri Haridas Parivaar ${eventName}, Vrindavan Festivals, ${eventName} Photos, ${eventName} Videos, Spiritual Celebrations, Temple Events`}
+    />
+
+
+
+    {/* eventpage */}
+
+
       <Link to="/gallery" className="inline-block mt-30 ml-8 bg-amber-600 text-white px-6 py-2 rounded-lg hover:bg-amber-700 transition-all">
         ← Back to Gallery
       </Link>
