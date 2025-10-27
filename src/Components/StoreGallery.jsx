@@ -1,6 +1,33 @@
 import { Camera, Mesh, Plane, Program, Renderer, Texture, Transform } from 'ogl';
 import { useEffect, useRef } from 'react';
-import logo from '../assets/logo.jpg'
+
+
+// pendant imports
+import pendant_bihariji from '../assets/store/pendant_bihariji.jpg'
+import pendant_krishn from '../assets/store/pendant_krishn.jpg'
+import pendant_krishn2 from '../assets/store/pendant_krishn2.jpg'
+import pendant_radhakrishn from '../assets/store/pendant_radhakrishn.jpg'
+import pendant_radhakrishn_silver from '../assets/store/pendant_radhakrishn(silver).jpg'
+import pendant_shriradha from '../assets/store/pendant_shriradha.jpg'
+
+
+// poshak imports
+
+import poshak_brown from '../assets/store/poshak(brown).jpg'
+import poshak_green from '../assets/store/poshak(green).jpg'
+import poshak_pink from '../assets/store/poshak(pink).jpg'
+import poshak_red from '../assets/store/poshak(red).jpg'
+
+
+// mala imports
+import tulsi_kanthi_mala from '../assets/store/tulsi_kanthi_mala.jpg'
+import tulsi_mala_radha from '../assets/store/tulsi_mala_radha.jpg'
+import tulsi_mala_radhakrishn from '../assets/store/tulsi_mala_radhakrishn.jpg'
+import tulsi_mala_radhakrishn2 from '../assets/store/tulsi_mala_radhakrishn2.jpg'
+import tulsi_mala_shriharidas from '../assets/store/tulsi_mala_shriharidas.jpg'
+import tulsi_mala_shriradha from '../assets/store/tulsi_mala_shriradha.jpg'
+import tulsi_mala_shriradha2 from '../assets/store/tulsi_mala_shriradha2.jpg'
+import tulsi_mala from '../assets/store/tulsi_mala.jpg'
 
 function debounce(func, wait) {
   let timeout;
@@ -333,19 +360,25 @@ class App {
   }
   createMedias(items, bend = 1, textColor, borderRadius, font) {
     const defaultItems = [
-      { image: `https://picsum.photos/seed/1/800/600?grayscale`, text: 'Bridge' },
-      { image: `https://picsum.photos/seed/2/800/600?grayscale`, text: 'Desk Setup' },
-      { image: `https://picsum.photos/seed/3/800/600?grayscale`, text: 'Waterfall' },
-      { image: `https://picsum.photos/seed/4/800/600?grayscale`, text: 'Strawberries' },
-      { image: `https://picsum.photos/seed/5/800/600?grayscale`, text: 'Deep Diving' },
-      { image: `https://picsum.photos/seed/16/800/600?grayscale`, text: 'Train Track' },
-      { image: `https://picsum.photos/seed/17/800/600?grayscale`, text: 'Santorini' },
-      { image: `https://picsum.photos/seed/8/800/600?grayscale`, text: 'Blurry Lights' },
-      { image: `https://picsum.photos/seed/9/800/600?grayscale`, text: 'New York' },
-      { image: `https://picsum.photos/seed/10/800/600?grayscale`, text: 'Good Boy' },
-      { image: `https://picsum.photos/seed/21/800/600?grayscale`, text: 'Coastline' },
-      { image: `https://picsum.photos/seed/12/800/600?grayscale`, text: 'Palm Trees' },
-      { image: `${logo}`, text: 'Logo'}
+      { image: `${pendant_bihariji}`, text: 'Bridge' },
+      { image: `${pendant_radhakrishn}`, text: 'Desk Setup' },
+      { image: `${pendant_radhakrishn_silver}`, text: 'Palm Trees' },
+      { image: `${pendant_shriradha}`, text: 'Logo'},
+      { image: `${pendant_krishn}`, text: 'Coastline' },
+      { image: `${pendant_krishn2}`, text: 'Coastline' },
+      { image: `${tulsi_kanthi_mala}`, text: 'Waterfall' },
+      { image: `${tulsi_mala_radha}`, text: 'Strawberries' },
+      { image: `${tulsi_mala}`, text: 'Train Track' },
+      { image: `${tulsi_mala_radhakrishn}`, text: 'Santorini' },
+      { image: `${tulsi_mala_radhakrishn2}`, text: 'Deep Diving' },
+      { image: `${tulsi_mala_shriharidas}`, text: 'Blurry Lights' },
+      { image: `${tulsi_mala_shriradha}`, text: 'New York' },
+      { image: `${tulsi_mala_shriradha2}`, text: 'Good Boy' },
+      { image: `${poshak_red}`, text: 'Good Boy' },
+      { image: `${poshak_green}`, text: 'Good Boy' },
+      { image: `${poshak_pink}`, text: 'Good Boy' },
+      { image: `${poshak_brown}`, text: 'Good Boy' },
+
     ];
     const galleryItems = items && items.length ? items : defaultItems;
     this.mediasImages = galleryItems.concat(galleryItems);
