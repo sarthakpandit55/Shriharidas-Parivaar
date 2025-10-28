@@ -1,4 +1,6 @@
 import React from "react";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 
 export default function Card({ product, onAdd }) {
   const { title, price, image, desc, tag, code } = product || {};
@@ -14,7 +16,14 @@ export default function Card({ product, onAdd }) {
     <article className="bg-white/80 backdrop-blur-md rounded-2xl shadow-lg overflow-hidden transition-transform transform hover:-translate-y-2 hover:shadow-3xl w-3/4 md:w-2/5 lg:w-1/4">
       {/* Image */}
       <div className="relative h-56 sm:h-64 w-full overflow-hidden">
-        <img src={image} alt={title} className="w-full h-full object-cover" />
+        <LazyLoadImage
+          src={image}
+          alt={title}
+          effect="blur"
+          height="100%"
+          width="100%"
+          className="w-full h-full object-cover"
+        />
 
         {tag && (
           <span className="absolute top-3 left-3 bg-amber-500 text-white text-xs font-semibold px-3 py-1 rounded-full shadow">

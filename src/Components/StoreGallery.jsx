@@ -3,31 +3,31 @@ import { useEffect, useRef } from 'react';
 
 
 // pendant imports
-import pendant_bihariji from '../assets/store/pendant_bihariji.jpg'
-import pendant_krishn from '../assets/store/pendant_krishn.jpg'
-import pendant_krishn2 from '../assets/store/pendant_krishn2.jpg'
-import pendant_radhakrishn from '../assets/store/pendant_radhakrishn.jpg'
-import pendant_radhakrishn_silver from '../assets/store/pendant_radhakrishn(silver).jpg'
-import pendant_shriradha from '../assets/store/pendant_shriradha.jpg'
+import pendant_bihariji from '../assets/store/pendant_bihariji.webp'
+import pendant_krishn from '../assets/store/pendant_krishn.webp'
+import pendant_krishn2 from '../assets/store/pendant_krishn2.webp'
+import pendant_radhakrishn from '../assets/store/pendant_radhakrishn.webp'
+import pendant_radhakrishn_silver from '../assets/store/pendant_radhakrishn(silver).webp'
+import pendant_shriradha from '../assets/store/pendant_shriradha.webp'
 
 
 // poshak imports
 
-import poshak_brown from '../assets/store/poshak(brown).jpg'
-import poshak_green from '../assets/store/poshak(green).jpg'
-import poshak_pink from '../assets/store/poshak(pink).jpg'
-import poshak_red from '../assets/store/poshak(red).jpg'
+import poshak_brown from '../assets/store/poshak(brown).webp'
+import poshak_green from '../assets/store/poshak(green).webp'
+import poshak_pink from '../assets/store/poshak(pink).webp'
+import poshak_red from '../assets/store/poshak(red).webp'
 
 
 // mala imports
-import tulsi_kanthi_mala from '../assets/store/tulsi_kanthi_mala.jpg'
-import tulsi_mala_radha from '../assets/store/tulsi_mala_radha.jpg'
-import tulsi_mala_radhakrishn from '../assets/store/tulsi_mala_radhakrishn.jpg'
-import tulsi_mala_radhakrishn2 from '../assets/store/tulsi_mala_radhakrishn2.jpg'
-import tulsi_mala_shriharidas from '../assets/store/tulsi_mala_shriharidas.jpg'
-import tulsi_mala_shriradha from '../assets/store/tulsi_mala_shriradha.jpg'
-import tulsi_mala_shriradha2 from '../assets/store/tulsi_mala_shriradha2.jpg'
-import tulsi_mala from '../assets/store/tulsi_mala.jpg'
+import tulsi_kanthi_mala from '../assets/store/tulsi_kanthi_mala.webp'
+import tulsi_mala_radha from '../assets/store/tulsi_mala_radha.webp'
+import tulsi_mala_radhakrishn from '../assets/store/tulsi_mala_radhakrishn.webp'
+import tulsi_mala_radhakrishn2 from '../assets/store/tulsi_mala_radhakrishn2.webp'
+import tulsi_mala_shriharidas from '../assets/store/tulsi_mala_shriharidas.webp'
+import tulsi_mala_shriradha from '../assets/store/tulsi_mala_shriradha.webp'
+import tulsi_mala_shriradha2 from '../assets/store/tulsi_mala_shriradha2.webp'
+import tulsi_mala from '../assets/store/tulsi_mala.webp'
 
 function debounce(func, wait) {
   let timeout;
@@ -360,24 +360,24 @@ class App {
   }
   createMedias(items, bend = 1, textColor, borderRadius, font) {
     const defaultItems = [
-      { image: `${pendant_bihariji}`, text: 'Bridge' },
-      { image: `${pendant_radhakrishn}`, text: 'Desk Setup' },
-      { image: `${pendant_radhakrishn_silver}`, text: 'Palm Trees' },
-      { image: `${pendant_shriradha}`, text: 'Logo'},
-      { image: `${pendant_krishn}`, text: 'Coastline' },
-      { image: `${pendant_krishn2}`, text: 'Coastline' },
-      { image: `${tulsi_kanthi_mala}`, text: 'Waterfall' },
-      { image: `${tulsi_mala_radha}`, text: 'Strawberries' },
-      { image: `${tulsi_mala}`, text: 'Train Track' },
-      { image: `${tulsi_mala_radhakrishn}`, text: 'Santorini' },
-      { image: `${tulsi_mala_radhakrishn2}`, text: 'Deep Diving' },
-      { image: `${tulsi_mala_shriharidas}`, text: 'Blurry Lights' },
-      { image: `${tulsi_mala_shriradha}`, text: 'New York' },
-      { image: `${tulsi_mala_shriradha2}`, text: 'Good Boy' },
-      { image: `${poshak_red}`, text: 'Good Boy' },
-      { image: `${poshak_green}`, text: 'Good Boy' },
-      { image: `${poshak_pink}`, text: 'Good Boy' },
-      { image: `${poshak_brown}`, text: 'Good Boy' },
+      { image: `${pendant_bihariji}`, text: 'Pendant Bihariji' },
+      { image: `${pendant_radhakrishn}`, text: 'Pendant Radhakrishn' },
+      { image: `${pendant_radhakrishn_silver}`, text: 'Pendant Radhakrishn Silver' },
+      { image: `${pendant_shriradha}`, text: 'Pendant Shriradha'},
+      { image: `${pendant_krishn}`, text: 'Pendant Krishn' },
+      { image: `${pendant_krishn2}`, text: 'Pendant Krishn2' },
+      { image: `${tulsi_kanthi_mala}`, text: 'Tulsi Kanthi Mala' },
+      { image: `${tulsi_mala_radha}`, text: 'Tulsi Mala Radha' },
+      { image: `${tulsi_mala}`, text: 'Tulsi Mala' },
+      { image: `${tulsi_mala_radhakrishn}`, text: 'Tulsi Mala Radhakrishn' },
+      { image: `${tulsi_mala_radhakrishn2}`, text: 'Tulsi Mala Radhakrishn2' },
+      { image: `${tulsi_mala_shriharidas}`, text: 'Tulsi Mala Shriharidas' },
+      { image: `${tulsi_mala_shriradha}`, text: 'Tulsi Mala Shriradha' },
+      { image: `${tulsi_mala_shriradha2}`, text: 'Tulsi Mala Shriradha2' },
+      { image: `${poshak_red}`, text: 'Poshak Red' },
+      { image: `${poshak_green}`, text: 'Poshak Green' },
+      { image: `${poshak_pink}`, text: 'Poshak Pink' },
+      { image: `${poshak_brown}`, text: 'Poshak Brown' },
 
     ];
     const galleryItems = items && items.length ? items : defaultItems;

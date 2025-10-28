@@ -5,30 +5,30 @@ import SEO from '../Components/SEO'
 
 
 // poshak imports
-import poshak_green from '../assets/store/poshak(green).jpg'
-import poshak_red from '../assets/store/poshak(red).jpg'
-import poshak_pink from '../assets/store/poshak(pink).jpg'
-import poshak_brown from '../assets/store/poshak(brown).jpg'
+import poshak_green from '../assets/store/poshak(green).webp'
+import poshak_red from '../assets/store/poshak(red).webp'
+import poshak_pink from '../assets/store/poshak(pink).webp'
+import poshak_brown from '../assets/store/poshak(brown).webp'
 
 // tulsi mala imports
 
-import tulsi_mala from '../assets/store/tulsi_mala.jpg'
-import tulsi_kanthi_mala from '../assets/store/tulsi_kanthi_mala.jpg'
-import tulsi_mala_radha from '../assets/store/tulsi_mala_radha.jpg'
-import tulsi_mala_radhakrishn from '../assets/store/tulsi_mala_radhakrishn.jpg'
-import tulsi_mala_radhakrishn2 from '../assets/store/tulsi_mala_radhakrishn2.jpg'
-import tulsi_mala_shriharidas from '../assets/store/tulsi_mala_shriharidas.jpg'
-import tulsi_mala_shriradha from '../assets/store/tulsi_mala_shriradha.jpg'
-import tulsi_mala_shriradha2 from '../assets/store/tulsi_mala_shriradha2.jpg'
+import tulsi_mala from '../assets/store/tulsi_mala.webp'
+import tulsi_kanthi_mala from '../assets/store/tulsi_kanthi_mala.webp'
+import tulsi_mala_radha from '../assets/store/tulsi_mala_radha.webp'
+import tulsi_mala_radhakrishn from '../assets/store/tulsi_mala_radhakrishn.webp'
+import tulsi_mala_radhakrishn2 from '../assets/store/tulsi_mala_radhakrishn2.webp'
+import tulsi_mala_shriharidas from '../assets/store/tulsi_mala_shriharidas.webp'
+import tulsi_mala_shriradha from '../assets/store/tulsi_mala_shriradha.webp'
+import tulsi_mala_shriradha2 from '../assets/store/tulsi_mala_shriradha2.webp'
 
 
 // pendant imports
-import pendant_bihariji from '../assets/store/pendant_bihariji.jpg'
-import pendant_krishn from '../assets/store/pendant_krishn.jpg'
-import pendant_krishn2 from '../assets/store/pendant_krishn2.jpg'
-import pendant_radhakrishn from '../assets/store/pendant_radhakrishn.jpg'
-import pendant_radhakrishn_silver from '../assets/store/pendant_radhakrishn(silver).jpg'
-import pendant_shriradha from '../assets/store/pendant_shriradha.jpg'
+import pendant_bihariji from '../assets/store/pendant_bihariji.webp'
+import pendant_krishn from '../assets/store/pendant_krishn.webp'
+import pendant_krishn2 from '../assets/store/pendant_krishn2.webp'
+import pendant_radhakrishn from '../assets/store/pendant_radhakrishn.webp'
+import pendant_radhakrishn_silver from '../assets/store/pendant_radhakrishn(silver).webp'
+import pendant_shriradha from '../assets/store/pendant_shriradha.webp'
 
 function Store() {
   return (

@@ -1,8 +1,19 @@
 import { Camera, Mesh, Plane, Program, Renderer, Texture, Transform } from 'ogl';
 import { useEffect, useRef } from 'react';
-import logo from '../assets/logo.jpg'
 
-import uthapyanbhog from '../assets/seva/uthapyanbhog.jpg'
+import arti_seva from '../assets/seva/arti_seva.webp'
+import bondi_seva from '../assets/seva/bondi_seva.webp'
+import chandan_seva from '../assets/seva/chandan_seva.webp'
+import chapan_bhog from '../assets/seva/chapan_bhog.webp'
+import chaveni_bhog from '../assets/seva/chaveni_bhog.webp'
+import deepak_seva from '../assets/seva/deepak_seva.webp'
+import deepdan_seva from '../assets/seva/deepdan_seva.webp'
+import deeran_poojan from '../assets/seva/deeran_poojan.webp'
+import fool_tulsi_chandan_seva from '../assets/seva/fool_tulsi_chandan_seva.webp'
+import paratha_prashadi from '../assets/seva/paratha_parshadi.webp'
+import raj_bhog from '../assets/seva/raj_bhog.webp'
+import saiya_seva from '../assets/seva/saiya_seva.webp'
+import uthapyanbhog from '../assets/seva/uthapyanbhog.webp'
 
 function debounce(func, wait) {
   let timeout;
@@ -335,17 +346,17 @@ class App {
   }
   createMedias(items, bend = 1, textColor, borderRadius, font) {
     const defaultItems = [
-      { image: `https://picsum.photos/seed/1/800/600?grayscale`, text: 'Bridge' },
-      { image: `https://picsum.photos/seed/2/800/600?grayscale`, text: 'Desk Setup' },
-      { image: `https://picsum.photos/seed/3/800/600?grayscale`, text: 'Waterfall' },
-      { image: `https://picsum.photos/seed/4/800/600?grayscale`, text: 'Strawberries' },
-      { image: `https://picsum.photos/seed/5/800/600?grayscale`, text: 'Deep Diving' },
-      { image: `https://picsum.photos/seed/16/800/600?grayscale`, text: 'Train Track' },
-      { image: `https://picsum.photos/seed/17/800/600?grayscale`, text: 'Santorini' },
-      { image: `https://picsum.photos/seed/8/800/600?grayscale`, text: 'Blurry Lights' },
-      { image: `https://picsum.photos/seed/9/800/600?grayscale`, text: 'New York' },
-      { image: `https://picsum.photos/seed/10/800/600?grayscale`, text: 'Good Boy' },
-      { image: `https://picsum.photos/seed/21/800/600?grayscale`, text: 'Coastline' },
+      { image: `${arti_seva}`, text: 'Aarti Seva' },
+      { image: `${bondi_seva}`, text: 'Bondi Seva' },
+      { image: `${chandan_seva}`, text: 'Chandan Seva' },
+      { image: `${chapan_bhog}`, text: 'Chapan Bhog' },
+      { image: `${chaveni_bhog}`, text: 'Chaveni Bhog' },
+      { image: `${deepak_seva}`, text: 'Deepak Seva' },
+      { image: `${deepdan_seva}`, text: 'Deepdan Seva' },
+      { image: `${deeran_poojan}`, text: 'Deeran Poojan' },
+      { image: `${fool_tulsi_chandan_seva}`, text: 'Fool Tulsi Chandan Seva' },
+      { image: `${paratha_prashadi}`, text: 'Paratha Prashadi' },
+      { image: `${raj_bhog}`, text: 'Raj Bhog' },
       { image: `${uthapyanbhog}`, text: 'Uthapyan Bhog' },
     ];
     const galleryItems = items && items.length ? items : defaultItems;

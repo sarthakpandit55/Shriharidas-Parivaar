@@ -73,13 +73,13 @@ function Footer() {
               <a href="https://www.instagram.com/shriharidas_parivaar?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target='blank'>
               <div className="flex items-center gap-3">
                 <FaInstagram className="w-5 h-5 text-pink-500" />
-                <span className="font-medium">pujarikunalgoswamii</span>
+                <span className="font-medium">shriharidas_parivaar</span>
               </div>
               </a>
               <a href="https://www.youtube.com/@laddu_bihariji_pujari">
               <div className="flex items-center gap-3">
                 <FaYoutube className="w-5 h-5 text-red-500" />
-                <span className="font-medium">pujarikunalgoswamii</span>
+                <span className="font-medium">shriharidas_parivaar</span>
               </div>
               </a>
             </div>
