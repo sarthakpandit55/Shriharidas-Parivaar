@@ -3,42 +3,42 @@ import { useParams, Link } from "react-router-dom";
 import SEO from "../Components/SEO";
 
 // holi imports
-import holi_video_1 from "../assets/holi/holi-video-1.mp4";
+import holi_video_1 from "../assets/holi/holi-video-1.webm";
 
-// diwali imports
-import diwali from "../assets/diwali-1.jpg";
 
 // hariyali teej imports
-import hariyali_teej_1 from "../assets/hariyali-teej/hariyali-teej-1.jpg";
-import hariyali_teej_2 from "../assets/hariyali-teej/hariyali-teej-2.jpg";
-import hariyali_teej_3 from "../assets/hariyali-teej/hariyali-teej-3.jpg";
-import hariyali_teej_4 from "../assets/hariyali-teej/hariyali-teej-4.jpg";
-import hariyali_teej_5 from "../assets/hariyali-teej/hariyali-teej-5.jpg";
-import hariyali_teej_6 from "../assets/hariyali-teej/hariyali-teej-6.jpg";
-import hariyali_teej_7 from "../assets/hariyali-teej/hariyali-teej-7.jpg";
-import hariyali_teej_8 from "../assets/hariyali-teej/hariyali-teej-8.jpg";
-import teej_Video_1 from "../assets/hariyali-teej/hariyali-teej-video-1.mp4";
+import hariyali_teej_1 from "../assets/hariyali-teej/hariyali-teej-1.webp";
+import hariyali_teej_2 from "../assets/hariyali-teej/hariyali-teej-2.webp";
+import hariyali_teej_3 from "../assets/hariyali-teej/hariyali-teej-3.webp";
+import hariyali_teej_4 from "../assets/hariyali-teej/hariyali-teej-4.webp";
+import hariyali_teej_5 from "../assets/hariyali-teej/hariyali-teej-5.webp";
+import hariyali_teej_6 from "../assets/hariyali-teej/hariyali-teej-6.webp";
+import hariyali_teej_7 from "../assets/hariyali-teej/hariyali-teej-7.webp";
+import hariyali_teej_8 from "../assets/hariyali-teej/hariyali-teej-8.webp";
+import teej_Video_1 from "../assets/hariyali-teej/hariyali-teej-video-1.webm";
 
 // fool bangla imports
-import fool_Bangla_1 from "../assets/fool-bangla/fool-bangla-1.jpg";
-import fool_Bangla_2 from "../assets/fool-bangla/fool-bangla-2.jpg";
-import fool_Bangla_3 from "../assets/fool-bangla/fool-bangla-3.jpg";
-import fool_Bangla_4 from "../assets/fool-bangla/fool-bangla-4.jpg";
-import fool_Bangla_5 from "../assets/fool-bangla/fool-bangla-5.jpg";
+import fool_Bangla_1 from "../assets/fool-bangla/fool-bangla-1.webp";
+import fool_Bangla_2 from "../assets/fool-bangla/fool-bangla-2.webp";
+import fool_Bangla_3 from "../assets/fool-bangla/fool-bangla-3.webp";
+import fool_Bangla_4 from "../assets/fool-bangla/fool-bangla-4.webp";
+import fool_Bangla_5 from "../assets/fool-bangla/fool-bangla-5.webp";
 
 // sharad purnima imports
-import sharad_purnima_1 from "../assets/sharad-purnima/sharad-purnima-1.jpg";
-import sharad_purnima_2 from "../assets/sharad-purnima/sharad-purnima-2.jpg";
-import sharad_purnima_3 from "../assets/sharad-purnima/sharad-purnima-3.jpg";
-import sharad_purnima_4 from "../assets/sharad-purnima/sharad-purnima-4.jpg";
+import sharad_purnima_1 from "../assets/sharad-purnima/sharad-purnima-1.webp";
+import sharad_purnima_2 from "../assets/sharad-purnima/sharad-purnima-2.webp";
+import sharad_purnima_3 from "../assets/sharad-purnima/sharad-purnima-3.webp";
+import sharad_purnima_4 from "../assets/sharad-purnima/sharad-purnima-4.webp";
+import sharad_purnima_video_1 from "../assets/sharad-purnima/sharad-purnima-video-1.webm";
 
 // radha astami imports
-import radha_astami_2 from "../assets/radha-astami/radha-astami-2.jpg";
-import radha_astami_3 from "../assets/radha-astami/radha-astami-3.jpg";
-import radha_astami_Video_1 from "../assets/radha-astami/radha-astami-video-1.mp4";
+import radha_astami_2 from "../assets/radha-astami/radha-astami-2.webp";
+import radha_astami_3 from "../assets/radha-astami/radha-astami-3.webp";
+import radha_astami_Video_1 from "../assets/radha-astami/radha-astami-video-1.webm";
+import radha_astami_Video_2 from "../assets/radha-astami/radha-astami-video-1.webm";
 
 // janmashtami imports
-import janmashtami_video_1 from "../assets/janmashtami/janmashtami-video-1.mp4";
+import janmashtami_video_1 from "../assets/janmashtami/janmashtami-video-1.webm";
 
 
 
@@ -49,9 +49,6 @@ export default function EventPage() {
   const eventMedia = {
     "holi":[
       {type: "video", src: holi_video_1},
-    ],
-    "diwali": [
-      { type: "image", src: diwali },
     ],
     "janmashtami": [
       { type: "video", src: janmashtami_video_1 },
@@ -79,11 +76,13 @@ export default function EventPage() {
       { type: "image", src: sharad_purnima_2 },
       { type: "image", src: sharad_purnima_3 },
       { type: "image", src: sharad_purnima_4 },
+      { type: "video", src: sharad_purnima_video_1 },
     ],
     "radha astami": [
       { type: "image", src: radha_astami_2 },
       { type: "image", src: radha_astami_3 },
       { type: "video", src: radha_astami_Video_1 }, 
+      { type: "video", src: radha_astami_Video_2 }, 
     ],
 
   };
@@ -94,7 +93,7 @@ export default function EventPage() {
   const handleDownload = (url, type) => {
     const link = document.createElement("a");
     link.href = url;
-    link.download = `${eventName}.${type === "video" ? "mp4" : "jpg"}`;
+    link.download = `${eventName}.${type === "video" ? "webm" : "webp"}`;
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);

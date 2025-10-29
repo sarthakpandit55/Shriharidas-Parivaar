@@ -5,21 +5,19 @@ import SEO from "../Components/SEO";
 // image imports
 import diwali from "../assets/BihariJi4.jpg";
 import janmashtami from "../assets/BihariJi3.jpg";
-import fool_bangla_1 from "../assets/fool-bangla/fool-bangla-1.jpg";
-import hariyali_teej_1 from "../assets/hariyali-teej/hariyali-teej-1.jpg";
-import sharad_purnima_1 from "../assets/sharad-purnima/sharad-purnima-1.jpg";
-import radha_astami_2 from "../assets/radha-astami/radha-astami-2.jpg";
+import fool_bangla_1 from "../assets/fool-bangla/fool-bangla-1.webp";
+import hariyali_teej_1 from "../assets/hariyali-teej/hariyali-teej-1.webp";
+import sharad_purnima_1 from "../assets/sharad-purnima/sharad-purnima-1.webp";
+import radha_astami_2 from "../assets/radha-astami/radha-astami-2.webp";
 
 export default function Gallery() {
   const galleryItems = [
-    { name: "Bihar Panchami", image: "", link: "/gallery/bihar panchami", hindi: "बिहार पंचमी" },
     { name: "Janmashtami", image: janmashtami, link: "/gallery/janmashtami",hindi: "जन्माष्टमी" },
     { name: "Holi", image: "", link: "/gallery/holi", hindi: "होली" },
     { name: "Hariyali Teej", image: hariyali_teej_1, link: "/gallery/hariyali-teej", hindi: "हरियाली तीज" },
     { name: "Fool Bangla", image: fool_bangla_1, link: "/gallery/fool bangla", hindi: "फूल बगला" },
     { name: "Sharad Purnima", image: sharad_purnima_1, link: "/gallery/sharad purnima", hindi: "शरद पूर्णिमा" },
     { name: "Radha Astami", image: radha_astami_2, link: "/gallery/radha astami", hindi: "राधा अष्टमी" },
-    { name: "Diwali", image: diwali, link: "/gallery/diwali", hindi: "दिवाली" },
 ];
 
 

@@ -347,16 +347,11 @@ class App {
   createMedias(items, bend = 1, textColor, borderRadius, font) {
     const defaultItems = [
       { image: `${arti_seva}`, text: 'Aarti Seva' },
-      { image: `${bondi_seva}`, text: 'Bondi Seva' },
       { image: `${chandan_seva}`, text: 'Chandan Seva' },
-      { image: `${chapan_bhog}`, text: 'Chapan Bhog' },
-      { image: `${chaveni_bhog}`, text: 'Chaveni Bhog' },
       { image: `${deepak_seva}`, text: 'Deepak Seva' },
       { image: `${deepdan_seva}`, text: 'Deepdan Seva' },
       { image: `${deeran_poojan}`, text: 'Deeran Poojan' },
       { image: `${fool_tulsi_chandan_seva}`, text: 'Fool Tulsi Chandan Seva' },
-      { image: `${paratha_prashadi}`, text: 'Paratha Prashadi' },
-      { image: `${raj_bhog}`, text: 'Raj Bhog' },
       { image: `${uthapyanbhog}`, text: 'Uthapyan Bhog' },
     ];
     const galleryItems = items && items.length ? items : defaultItems;

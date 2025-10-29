@@ -360,24 +360,15 @@ class App {
   }
   createMedias(items, bend = 1, textColor, borderRadius, font) {
     const defaultItems = [
-      { image: `${pendant_bihariji}`, text: 'Pendant Bihariji' },
       { image: `${pendant_radhakrishn}`, text: 'Pendant Radhakrishn' },
-      { image: `${pendant_radhakrishn_silver}`, text: 'Pendant Radhakrishn Silver' },
       { image: `${pendant_shriradha}`, text: 'Pendant Shriradha'},
-      { image: `${pendant_krishn}`, text: 'Pendant Krishn' },
-      { image: `${pendant_krishn2}`, text: 'Pendant Krishn2' },
       { image: `${tulsi_kanthi_mala}`, text: 'Tulsi Kanthi Mala' },
-      { image: `${tulsi_mala_radha}`, text: 'Tulsi Mala Radha' },
       { image: `${tulsi_mala}`, text: 'Tulsi Mala' },
       { image: `${tulsi_mala_radhakrishn}`, text: 'Tulsi Mala Radhakrishn' },
-      { image: `${tulsi_mala_radhakrishn2}`, text: 'Tulsi Mala Radhakrishn2' },
       { image: `${tulsi_mala_shriharidas}`, text: 'Tulsi Mala Shriharidas' },
-      { image: `${tulsi_mala_shriradha}`, text: 'Tulsi Mala Shriradha' },
-      { image: `${tulsi_mala_shriradha2}`, text: 'Tulsi Mala Shriradha2' },
       { image: `${poshak_red}`, text: 'Poshak Red' },
       { image: `${poshak_green}`, text: 'Poshak Green' },
       { image: `${poshak_pink}`, text: 'Poshak Pink' },
-      { image: `${poshak_brown}`, text: 'Poshak Brown' },
 
     ];
     const galleryItems = items && items.length ? items : defaultItems;
