@@ -1,12 +1,12 @@
-import React,  { useState } from "react";
+import React,  { useState, lazy, Suspense } from "react";
 import { Link } from "react-router-dom";
 
 
 // component imports
 import TextType from './TextType';
 import ScrollVelocity from './ScrollVelocity';
-import SevaGallery from "./SevaGallery";
-import StoreGallery from "./StoreGallery";
+const SevaGallery = lazy(() => import('./SevaGallery'));
+const StoreGallery = lazy(() => import('./StoreGallery'));
 import Contact from "../Pages/Contact";
 import SEO from "./SEO.jsx";
 
@@ -85,34 +85,38 @@ return (
 
           "ऐसो रसिक भयो नहिं है है भूमण्डल आकाश" <br />
 
-          अनन्य रसिक चक्र चूड़ामणि सारस्वत कुल मार्तण्ड श्रीस्वामी हरिदासजी महाराज प्रभु की प्रधान सखी श्रीललिता जू के अवतार थे। विधर्मियों का साम्राज्य था लोग अनेक धर्म एवं कर्मकाण्ड के भँवर में फँसे हुए थे। ऐसे समय में श्रीस्वामीजी ने दिव्यातिदिव्य नित्य विहार रसोपासना का प्रकाश किया। प्राणी मात्र के विदग्ध हृदय को शान्ति एवं शीतलता प्रदान की।<br />
+                        अनन्य रसिक चक्र चूड़ामणि सारस्वत कुल मार्तण्ड श्रीस्वामी हरिदासजी महाराज प्रभु की प्रधान सखी श्रीललिता जू के अवतार थे। विधर्मियों का साम्राज्य था लोग अनेक धर्म एवं कर्मकाण्ड के भँवर में फँसे हुए थे। ऐसे समय में श्रीस्वामीजी ने दिव्यातिदिव्य नित्य विहार रसोपासना का प्रकाश किया। प्राणी मात्र के विदग्ध हृदय को शान्ति एवं शीतलता प्रदान की। <br />
 
-          सद्‌गृहस्थ एवं साधारण जन के जीवन के नियम प्रदान किये- <br />
+                        सद्गृहस्थ एवं साधारण जन के जीवन के नियम प्रदान किये- <br />
 
-          "ज्यों ही ज्यों ही तुम राखत हो, त्यों ही त्यों ही रहियत हों हो हरि" हरि भज हरि भज छाँड़ि मान नर तन कौ। मत वंछै मति वंछै, रे तिल तिल धन कौ ।। <br />
+                        "ज्यों ही ज्यों ही तुम राखत हो, त्यों ही त्यों ही रहियत हों हो हरि" हरि भज हरि भज छाँड़ि मान नर तन कौ। मत वंछै मति वंछै, रे तिल तिल धन कौ ।। <br />
 
-          अष्टादश-सिद्धान्त के पदों में उपरोक्त एवं अन्य नियम वर्णित है।<br />
+                        अष्टादश-सिद्धान्त के पदों में उपरोक्त एवं अन्य नियम वर्णित है।<br />
 
-          जिस पथ को प्राप्त करने के लिए बड़े-बड़े ज्ञानी तपस्वी नेत्र मूंदकर नासिका पकड़ हजारों हजार वर्षों तक ध्यान करते हैं, वेद वेदान्त जिस पथ को प्राप्त नहीं कर सके उसी अनन्य रसिकों के बाँके पथ को श्रीहरिदासजी महाराज ने विश्व में प्रकाशित किया जैसाकि स्वयं वल्लभ-पथगामी श्रीगोविन्द स्वामीजी ने उनकी प्रशंसा में लिखा- <br />
+                        जिस पथ को प्राप्त करने के लिए बड़े-बड़े ज्ञानी तपस्वी नेत्र मूंदकर<br />
 
-          "रसिक अनन्यन को पथ बाँकों।    <Link to="/about" className="cursor-pointer text-blue-500">...और पढ़ें</Link>
+                        नासिका पकड़ हजारों हजार वर्षों तक ध्यान करते हैं, वेद वेदान्त जिस पथ को प्राप्त नहीं कर सके उसी अनन्य रसिकों के बाँके पथ को श्रीहरिदासजी महाराज ने विश्व में प्रकाशित किया जैसाकि स्वयं वल्लभ-पथगामी श्रीगोविन्द <br />
+
+                        स्वामीजी ने उनकी प्रशंसा में लिखा- <br />
+
+                        "रसिक अनन्यन को पथ बाँकों।    <Link to="/about" className="cursor-pointer text-blue-500">...और पढ़ें</Link>
 
           </p>)
           :
          (<p className="text-lg text-justify tracking-tighter">
-          ‘Such a connoisseur there is not in the world or in the sky.’  <br/>
+          "Such a Connoisseur Never Existed in the World or the Heavens" <br />
 
-          Ananya Rasik, Chakr Chuḍāmaṇi Saraswat family’s Marṭand, Śrī Swāmi Haridāsji Maharaj, was the foremost devotee and the principal friend of Lord Shree Lalita Ji, an incarnation of divine love. During those times, when the empire was ruled by non-believers and people were entangled in various religions and rituals, Shree Swamiji illuminated the practice of divine daily pastimes filled with rasa (spiritual delight). He brought peace and tranquility to the hearts of all beings.  <br/>
+                      The unparalleled connoisseur, the crown jewel of the scholarly Saraswat lineage, Shri Swami Haridas Ji Maharaj, was the principal companion of Lord Shri Lalita Ji. In those times, the world was ruled by heretics, and people were lost in the maze of various religions and rituals. Amidst this darkness, Shri Swamiji illuminated the divine eternal pastime of rasa-worship, bringing peace and serenity to the hearts of all living beings. <br />
 
-          He provided rules for the life of householders and ordinary people:  <br/>
+                      He also laid down guiding principles for the lives of householders and ordinary people: <br />
 
-          ‘As soon as you burn (for Him), right then, right then, Hari stays with you; worship Hari, worship Hari, abandoning pride, O human body. Thoughts are desired, wisdom is desired, O seed of wealth.’  <br/>
+                      "As you remain devoted, so shall you remain in the Lord. Chant Hari, chant Hari, forsaking worldly pride. Seek neither wealth nor wisdom; seek only the dust of the Lord’s feet." <br />
 
-          These and other rules are described in the verses of the Ashtadash-Siddhant.  <br/>
+                      These and other principles are described in the verses of the Ashtadash-Siddhant. <br />
 
-          The path that even great scholars and ascetics achieve by closing their eyes, holding their noses, and meditating for thousands of years, and the path of the Vedas and Vedanta that they could not attain, was revealed in the world by Shree Haridasji Maharaj for the connoisseurs of exclusive rasa. As the Valluabha-path follower Shree Govind Swamiji himself wrote in his praise:  <br/>
+                      The path that great sages and ascetics, meditating for thousands of years with closed eyes and disciplined breath, could not attain through the Vedas and Vedanta, Shri Haridas Ji Maharaj revealed for the exclusive connoisseurs. As Vallabh-Pathi Shri Govind Swamiji praised: <br />
 
-          ‘The path for the exclusive lover of rasa is twisted.’ <Link to="/about" className="text-blue-500">...Read more</Link>
+                      "The unparalleled connoisseurs follow the winding path.’ <Link to="/about" className="text-blue-500">...Read more</Link>
         </p>)
         }
       </div>
@@ -143,7 +147,9 @@ return (
 
     {/* Circular Cards */}
   <div className="lg:h-[550px] md:h-[500px] h-[300px] relative">
-    <SevaGallery bend={3} textColor="#111111" borderRadius={0.05} scrollEase={0.02}/>
+    <Suspense fallback={<div className="w-full h-full flex items-center justify-center">Loading…</div>}>
+      <SevaGallery bend={3} textColor="#111111" borderRadius={0.05} scrollEase={0.02}/>
+    </Suspense>
   </div>
 
   {/* button */}
@@ -164,7 +170,9 @@ return (
 
     {/* Circular Cards */}
   <div className="lg:h-[550px] md:h-[500px] h-[300px] relative">
-    <StoreGallery bend={3} textColor="#111111" borderRadius={0.05} scrollEase={0.02}/>
+    <Suspense fallback={<div className="w-full h-full flex items-center justify-center">Loading…</div>}>
+      <StoreGallery bend={3} textColor="#111111" borderRadius={0.05} scrollEase={0.02}/>
+    </Suspense>
   </div>
 
   {/* button */}

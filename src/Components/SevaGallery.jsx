@@ -144,7 +144,7 @@ class Media {
   }
   createShader() {
     const texture = new Texture(this.gl, {
-      generateMipmaps: true
+      generateMipmaps: false
     });
     this.program = new Program(this.gl, {
       depthTest: false,
@@ -324,7 +324,7 @@ class App {
     this.renderer = new Renderer({
       alpha: true,
       antialias: true,
-      dpr: Math.min(window.devicePixelRatio || 1, 2)
+      dpr: Math.min(window.devicePixelRatio || 1, 1.25)
     });
     this.gl = this.renderer.gl;
     this.gl.clearColor(0, 0, 0, 0);
@@ -339,9 +339,10 @@ class App {
     this.scene = new Transform();
   }
   createGeometry() {
+    // reduced geometry complexity to improve performance
     this.planeGeometry = new Plane(this.gl, {
-      heightSegments: 50,
-      widthSegments: 100
+      heightSegments: 10,
+      widthSegments: 20
     });
   }
   createMedias(items, bend = 1, textColor, borderRadius, font) {
@@ -436,7 +437,6 @@ class App {
     this.boundOnTouchMove = this.onTouchMove.bind(this);
     this.boundOnTouchUp = this.onTouchUp.bind(this);
     window.addEventListener('resize', this.boundOnResize);
-    window.addEventListener('mousewheel', this.boundOnWheel);
     window.addEventListener('wheel', this.boundOnWheel);
     window.addEventListener('mousedown', this.boundOnTouchDown);
     window.addEventListener('mousemove', this.boundOnTouchMove);
@@ -473,9 +473,33 @@ export default function SevaGallery({
 }) {
   const containerRef = useRef(null);
   useEffect(() => {
-    const app = new App(containerRef.current, { items, bend, textColor, borderRadius, font, scrollSpeed, scrollEase });
+    const el = containerRef.current;
+    if (!el) return;
+
+    let app = null;
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && !app) {
+          // initialize when the container is visible (lazy init)
+          app = new App(el, { items, bend, textColor, borderRadius, font, scrollSpeed, scrollEase });
+        } else if (!entry.isIntersecting && app) {
+          // destroy when not visible to free resources
+          app.destroy();
+          app = null;
+        }
+      });
+    }, { threshold: 0.1 });
+
+    observer.observe(el);
+
+    // cleanup
     return () => {
-      app.destroy();
+      observer.disconnect();
+      if (app) {
+        app.destroy();
+        app = null;
+      }
     };
   }, [items, bend, textColor, borderRadius, font, scrollSpeed, scrollEase]);
   return <div className="w-full h-full overflow-hidden cursor-grab active:cursor-grabbing" ref={containerRef} />;

@@ -157,8 +157,9 @@ class Media {
     this.onResize();
   }
   createShader() {
+    // disable mipmaps for gallery textures to reduce GPU work
     const texture = new Texture(this.gl, {
-      generateMipmaps: true
+      generateMipmaps: false
     });
     this.program = new Program(this.gl, {
       depthTest: false,
@@ -338,7 +339,8 @@ class App {
     this.renderer = new Renderer({
       alpha: true,
       antialias: true,
-      dpr: Math.min(window.devicePixelRatio || 1, 2)
+      // cap DPR to reduce high-res rendering costs on retina devices
+      dpr: Math.min(window.devicePixelRatio || 1, 1.25)
     });
     this.gl = this.renderer.gl;
     this.gl.clearColor(0, 0, 0, 0);
@@ -353,9 +355,10 @@ class App {
     this.scene = new Transform();
   }
   createGeometry() {
+    // reduce geometry complexity to improve performance
     this.planeGeometry = new Plane(this.gl, {
-      heightSegments: 50,
-      widthSegments: 100
+      heightSegments: 10,
+      widthSegments: 20
     });
   }
   createMedias(items, bend = 1, textColor, borderRadius, font) {
@@ -453,8 +456,8 @@ class App {
     this.boundOnTouchMove = this.onTouchMove.bind(this);
     this.boundOnTouchUp = this.onTouchUp.bind(this);
     window.addEventListener('resize', this.boundOnResize);
-    window.addEventListener('mousewheel', this.boundOnWheel);
-    window.addEventListener('wheel', this.boundOnWheel);
+  // use only 'wheel' to avoid duplicate events across browsers
+  window.addEventListener('wheel', this.boundOnWheel);
     window.addEventListener('mousedown', this.boundOnTouchDown);
     window.addEventListener('mousemove', this.boundOnTouchMove);
     window.addEventListener('mouseup', this.boundOnTouchUp);
@@ -490,9 +493,30 @@ export default function StoreGallery({
 }) {
   const containerRef = useRef(null);
   useEffect(() => {
-    const app = new App(containerRef.current, { items, bend, textColor, borderRadius, font, scrollSpeed, scrollEase });
+    const el = containerRef.current;
+    if (!el) return;
+
+    let app = null;
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && !app) {
+          app = new App(el, { items, bend, textColor, borderRadius, font, scrollSpeed, scrollEase });
+        } else if (!entry.isIntersecting && app) {
+          app.destroy();
+          app = null;
+        }
+      });
+    }, { threshold: 0.1 });
+
+    observer.observe(el);
+
     return () => {
-      app.destroy();
+      observer.disconnect();
+      if (app) {
+        app.destroy();
+        app = null;
+      }
     };
   }, [items, bend, textColor, borderRadius, font, scrollSpeed, scrollEase]);
   return <div className="w-full h-full overflow-hidden cursor-grab active:cursor-grabbing" ref={containerRef} />;

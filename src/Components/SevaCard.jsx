@@ -7,7 +7,7 @@ export default function SevaCard({ product, onAdd }) {
 
 
   const message = encodeURIComponent(
-    `Hello! I want to incury about this seva:\n\n🛍️ *${title}*\n\nPlease provide more details.`
+    `Hello! I want to inquiry about this seva:\n\n🙏 *${title}*\n\nPlease provide more details.`
   );
 
   const whatsappLink = `https://wa.me/918630362454?text=${message}`;
@@ -44,7 +44,7 @@ export default function SevaCard({ product, onAdd }) {
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center gap-2 w-full bg-amber-500 text-white px-4 py-2 rounded-xl font-semibold shadow hover:bg-amber-600 transition-colors"
           >
-            Incury Seva
+            Inquiry Seva
           </a>
         </div>
 
