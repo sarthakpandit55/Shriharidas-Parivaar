@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useState, useMemo } from 'react'
 import SevaCard from '../Components/SevaCard'
 import SEO from '../Components/SEO'
+import SearchFilter from '../Components/SearchFilter'
 
 // imports
 import arti_seva from '../assets/seva/arti_seva.webp'
@@ -18,49 +19,68 @@ import saiya_seva from '../assets/seva/saiya_seva.webp'
 import uthapyanbhog from '../assets/seva/uthapyanbhog.webp'
 
 function Seva() {
+  const [searchQuery, setSearchQuery] = useState('');
+  const [activeFilter, setActiveFilter] = useState('all');
+
+  const sevaItems = useMemo(() => [
+    { id: 1, title: 'Aarti Seva', image: arti_seva, desc: 'Participate in the divine aarti ceremony.', tag: 'Best Seller', category: 'daily' },
+    { id: 2, title: 'Bundi Seva', image: bondi_seva, desc: 'Offer sweet bundi prasad.', tag: 'Popular', category: 'food' },
+    { id: 3, title: 'Chandan Seva', image: chandan_seva, desc: 'Sacred sandalwood offering seva.', tag: 'Best Seller', category: 'daily' },
+    { id: 4, title: 'Chapan Bhog', image: chapan_bhog, desc: '56 different food items offered as bhog.', category: 'food' },
+    { id: 5, title: 'Chaveni Bhog', image: chaveni_bhog, desc: 'Special chaveni prasad offering.', category: 'festival' },
+    { id: 6, title: 'Deepak Seva', image: deepak_seva, desc: 'Light lamp offering seva.', category: 'daily' },
+    { id: 7, title: 'Deepdan Seva', image: deepdan_seva, desc: 'Sacred lamp donation seva.', category: 'festival' },
+    { id: 8, title: 'Deeran Poojan', image: deeran_poojan, desc: 'Special poojan ceremony.', category: 'daily' },
+    { id: 9, title: 'Fool Tulsi Chandan Seva', image: fool_tulsi_chandan_seva, desc: 'Complete flower and chandan seva.', tag: 'Special', category: 'daily' },
+    { id: 10, title: 'Paratha Prashadi', image: paratha_prashadi, desc: 'Sacred paratha prasad.', category: 'food' },
+    { id: 11, title: 'Raj Bhog', image: raj_bhog, desc: 'Royal food offering seva.', tag: 'Special', category: 'food' },
+    { id: 12, title: 'Saiya Seva', image: saiya_seva, desc: 'Traditional saiya seva offering.', category: 'special' },
+    { id: 13, title: 'Uthapyan Bhog', image: uthapyanbhog, desc: 'Morning prasad offering.', category: 'food' }
+  ], []);
+
+  const filters = [
+    { label: 'All', value: 'all' },
+    { label: '🙏Daily Seva', value: 'daily' },
+    { label: '🍯Food Offerings', value: 'food' },
+    { label: '✨Festival Seva', value: 'festival' },
+    { label: '🌷Special Seva', value: 'special' }
+  ];
+
+  const filteredItems = useMemo(() => {
+    return sevaItems.filter(item => {
+      const matchesSearch = item.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                          item.desc.toLowerCase().includes(searchQuery.toLowerCase());
+      const matchesFilter = activeFilter === 'all' || item.category === activeFilter;
+      return matchesSearch && matchesFilter;
+    });
+  }, [sevaItems, searchQuery, activeFilter]);
+
   return (
     <>
-
     {/* meta tag */}
-
     <SEO
-    title="Seva"
-    description="Participate in Seva at Shri Haridas Parivaar and explore handcrafted prayer malas and devotional items to support spiritual activities."
-    keywords="Shri Haridas Parivaar Seva, Temple Seva, Handcrafted Prayer Mala, Devotional Items, Spiritual Service, Vrindavan Temple Seva"
+      title="Seva"
+      description="Participate in Seva at Shri Haridas Parivaar and explore handcrafted prayer malas and devotional items to support spiritual activities."
+      keywords="Shri Haridas Parivaar Seva, Temple Seva, Handcrafted Prayer Mala, Devotional Items, Spiritual Service, Vrindavan Temple Seva"
     />
-
-
 
     {/* seva */}
     <div className="container mx-auto my-30 text-center flex flex-col">
         <h1 className='text-4xl font-semibold text-amber-600'><u>Seva</u> / <u>सेवाएं</u></h1>
 
+        <SearchFilter
+          searchQuery={searchQuery}
+          onSearchChange={setSearchQuery}
+          activeFilter={activeFilter}
+          onFilterChange={setActiveFilter}
+          filters={filters}
+        />
+
         <div className="flex justify-evenly mt-10 gap-10 flex-wrap bg-gray-200 py-10 rounded-lg">
-            <SevaCard product={{ id: 1, title: 'Aarti Seva', image: arti_seva, desc: 'Beautiful prayer mala made from tulsi beads.', tag: 'Best Seller'}}/>
+          {filteredItems.map(item => (
+            <SevaCard key={item.id} product={item} />
+          ))}
 
-            <SevaCard product={{ id: 1, title: 'Bundi Seva', image: bondi_seva, desc: 'Beautiful prayer mala made from tulsi beads.', tag: 'Best Seller'}}/>
-
-            <SevaCard product={{ id: 1, title: 'Chandan Seva', image: chandan_seva, desc: 'Beautiful prayer mala made from tulsi beads.', tag: 'Best Seller'}}/>
-
-            <SevaCard product={{ id: 1, title: 'Chapan Bhog', image: chapan_bhog, desc: 'Beautiful prayer mala made from tulsi beads.', tag: 'Best Seller'}}/>
-
-            <SevaCard product={{ id: 1, title: 'Chaveni Bhog', image: chaveni_bhog, desc: 'Beautiful prayer mala made from tulsi beads.', tag: 'Best Seller'}}/>
-
-            <SevaCard product={{ id: 1, title: 'Deepak Seva', image: deepak_seva, desc: 'Beautiful prayer mala made from tulsi beads.', tag: 'Best Seller'}}/>
-
-            <SevaCard product={{ id: 1, title: 'Deepdan Seva', image: deepdan_seva, desc: 'Beautiful prayer mala made from tulsi beads.', tag: 'Best Seller'}}/>
-
-            <SevaCard product={{ id: 1, title: 'Deeran Poojan', image: deeran_poojan, desc: 'Beautiful prayer mala made from tulsi beads.', tag: 'Best Seller'}}/>
-
-            <SevaCard product={{ id: 1, title: 'Fool Tulsi Chandan Seva', image: fool_tulsi_chandan_seva, desc: 'Beautiful prayer mala made from tulsi beads.', tag: 'Best Seller'}}/>
-
-            <SevaCard product={{ id: 1, title: 'Paratha Prashadi', image: paratha_prashadi, desc: 'Beautiful prayer mala made from tulsi beads.', tag: 'Best Seller'}}/>
-
-            <SevaCard product={{ id: 1, title: 'Raj Bhog', image: raj_bhog, desc: 'Beautiful prayer mala made from tulsi beads.', tag: 'Best Seller'}}/>
-
-            <SevaCard product={{ id: 1, title: 'Saiya Seva', image: saiya_seva, desc: 'Beautiful prayer mala made from tulsi beads.', tag: 'Best Seller'}}/>
-
-            <SevaCard product={{ id: 2, title: 'Uthapyan Bhog', image: uthapyanbhog, desc: 'Beautiful prayer mala made from tulsi beads.', tag: 'Best Seller'}}/>
         </div>
     </div>
     

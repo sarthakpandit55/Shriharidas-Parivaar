@@ -1,7 +1,7 @@
-import React from 'react'
-
+import React, { useState, useMemo } from 'react'
 import Card from '../Components/StoreCard'
 import SEO from '../Components/SEO'
+import SearchFilter from '../Components/SearchFilter'
 
 
 // poshak imports
@@ -31,75 +31,73 @@ import pendant_radhakrishn_silver from '../assets/store/pendant_radhakrishn(silv
 import pendant_shriradha from '../assets/store/pendant_shriradha.webp'
 
 function Store() {
+  const [searchQuery, setSearchQuery] = useState('');
+  const [activeFilter, setActiveFilter] = useState('all');
+
+  const storeItems = useMemo(() => [
+    { id: 1, title: 'Poshak (Brown)', price: 499, image: poshak_brown, desc: 'Beautiful traditional poshak in brown color. All sizes available from 2 to 11.', code: 'design 1A Brown', category: 'poshak' },
+    { id: 2, title: 'Poshak (Green)', price: 499, image: poshak_green, desc: 'Elegant green poshak. All sizes available from 2 to 11.', code: 'design 2A Green', category: 'poshak' },
+    { id: 3, title: 'Poshak (Pink)', price: 499, image: poshak_pink, desc: 'Delicate pink poshak. All sizes available from 2 to 11.', code: 'design 3A Pink', category: 'poshak' },
+    { id: 4, title: 'Poshak (Red)', price: 499, image: poshak_red, desc: 'Vibrant red poshak. All sizes available from 2 to 11.', code: 'design 2A Red', category: 'poshak' },
+    { id: 5, title: 'Tulsi Mala', price: 499, image: tulsi_mala, desc: 'Traditional tulsi prayer mala.', tag: 'Best Seller', category: 'mala' },
+    { id: 6, title: 'Tulsi Kanthi Mala', price: 499, image: tulsi_kanthi_mala, desc: 'Sacred tulsi kanthi mala for daily wear.', category: 'mala' },
+    { id: 7, title: 'Tulsi Mala With Radhey', price: 499, image: tulsi_mala_radha, desc: 'Tulsi mala with Radha medallion.', tag: 'Best Seller', category: 'mala' },
+    { id: 8, title: 'Tulsi Mala With Radha Krishna', price: 499, image: tulsi_mala_radhakrishn, desc: 'Divine Radha Krishna tulsi mala.', category: 'mala' },
+    { id: 9, title: 'Tulsi Mala With Radha Krishna', price: 499, image: tulsi_mala_radhakrishn2, desc: 'Special Radha Krishna tulsi mala design.', category: 'mala' },
+    { id: 10, title: 'Tulsi Mala With Shri Haridas', price: 499, image: tulsi_mala_shriharidas, desc: 'Blessed Shri Haridas tulsi mala.', tag: 'Best Seller', category: 'mala' },
+    { id: 11, title: 'Tulsi Mala With Shri Radha', price: 499, image: tulsi_mala_shriradha, desc: 'Sacred Shri Radha tulsi mala.', category: 'mala' },
+    { id: 12, title: 'Tulsi Mala With Shri Radha', price: 499, image: tulsi_mala_shriradha2, desc: 'Special design Shri Radha tulsi mala.', category: 'mala' },
+    { id: 13, title: 'Pendant With Bihariji', price: 499, image: pendant_bihariji, desc: 'Sacred Bihariji pendant.', category: 'pendant' },
+    { id: 14, title: 'Pendant With Krishna', price: 499, image: pendant_krishn, desc: 'Beautiful Krishna pendant.', category: 'pendant' },
+    { id: 15, title: 'Pendant With Written Shri Krishna', price: 499, image: pendant_krishn2, desc: 'Pendant with Shri Krishna inscription.', category: 'pendant' },
+    { id: 16, title: 'Pendant With Radha Krishna', price: 499, image: pendant_radhakrishn, desc: 'Divine Radha Krishna pendant.', category: 'pendant' },
+    { id: 17, title: 'Pendant With Radha Krishna (Silver)', price: 499, image: pendant_radhakrishn_silver, desc: 'Silver finish Radha Krishna pendant.', category: 'pendant' },
+    { id: 18, title: 'Pendant With Shri Radha', price: 499, image: pendant_shriradha, desc: 'Sacred Shri Radha pendant.', category: 'pendant' }
+  ], []);
+
+  const filters = [
+    { label: 'All Items', value: 'all' },
+    { label: '🌼Poshak', value: 'poshak' },
+    { label: '📿Tulsi Mala', value: 'mala' },
+    { label: '🌸Pendants', value: 'pendant' }
+  ];
+
+  const filteredItems = useMemo(() => {
+    return storeItems.filter(item => {
+      const matchesSearch = item.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                          item.desc.toLowerCase().includes(searchQuery.toLowerCase());
+      const matchesFilter = activeFilter === 'all' || item.category === activeFilter;
+      return matchesSearch && matchesFilter;
+    });
+  }, [storeItems, searchQuery, activeFilter]);
+
   return (
     <>
-
     {/* Meta tags */}
     <SEO
-    title="Store"
-    description="Explore the Shri Haridas Parivaar store offering handcrafted devotional items, tulsi prayer malas, spiritual gifts, and sacred products for devotees."
-    keywords="Shri Haridas Ji Store, Handcrafted Prayer Mala, Devotional Items Online, Spiritual Gifts, Tulsi Beads Mala, Vrindavan Temple Products, Religious Offerings, Shri Banke Bihari Temple Store, Spiritual Shopping"
+      title="Store"
+      description="Explore the Shri Haridas Parivaar store offering handcrafted devotional items, tulsi prayer malas, spiritual gifts, and sacred products for devotees."
+      keywords="Shri Haridas Ji Store, Handcrafted Prayer Mala, Devotional Items Online, Spiritual Gifts, Tulsi Beads Mala, Vrindavan Temple Products, Religious Offerings, Shri Banke Bihari Temple Store, Spiritual Shopping"
     />
 
-
-
     {/* store */}
-
     <div className="container mx-auto my-30 text-center flex flex-col">
-            <h1 className='text-4xl font-semibold text-amber-600'><u>Store</u> / <u>स्टोर</u></h1>
-    
-            <div className="flex justify-center mt-10 gap-10 flex-wrap bg-gray-200 py-10 rounded-lg">
-                
-                <Card product={{ id: 1, title: 'Poshak (Brown)', price: 499, image: poshak_brown, desc: 'All size and colours are available from 2 to 11.', code: 'design 1A Brown'}}/>
-    
-                <Card product={{ id: 1, title: 'Poshak (Green)', price: 499, image: poshak_green, desc: 'All size and colours are available from 2 to 11.', code: 'design 2A Green'}}/>
-    
-                <Card product={{ id: 1, title: 'Poshak (Pink)', price: 499, image: poshak_pink, desc: 'All size and colours are available from 2 to 11.', code: 'design 3A Pink'}}/>
-    
-                <Card product={{ id: 1, title: 'Poshak (Red)', price: 499, image: poshak_red, desc: 'All size and colours are available from 2 to 11.', code: 'design 2A Red'}}/>
-    
-                <Card product={{ id: 1, title: 'Tulsi Mala', price: 499, image: tulsi_mala, desc: 'Beautiful prayer mala made from tulsi beads.', tag: 'Best Seller'}}/>
-    
-                <Card product={{ id: 1, title: 'Tulsi Kanthi Mala', price: 499, image: tulsi_kanthi_mala, desc: 'Beautiful prayer mala made from tulsi beads.', }}/>
-    
-                <Card
-                product={{ id: 1, title: 'Tulsi Mala With Radhey', price: 499, image: tulsi_mala_radha, desc: 'Beautiful prayer mala made from tulsi beads.', tag: 'Best Seller'}}/>
-                
-                <Card
-                product={{ id: 1, title: 'Tulsi Mala With Radha Krishna', price: 499, image: tulsi_mala_radhakrishn, desc: 'Beautiful prayer mala made from tulsi beads.', }}/>
-                
-                <Card
-                product={{ id: 1, title: 'Tulsi Mala With Radha Krishna', price: 499, image: tulsi_mala_radhakrishn2, desc: 'Beautiful prayer mala made from tulsi beads.',}}/>
-                
-                <Card
-                product={{ id: 1, title: 'Tulsi Mala With Shri Haridas', price: 499, image: tulsi_mala_shriharidas, desc: 'Beautiful prayer mala made from tulsi beads.', tag: 'Best Seller'}}/>
-                
-                <Card
-                product={{ id: 1, title: 'Tulsi Mala With Shri Radha ', price: 499, image: tulsi_mala_shriradha, desc: 'Beautiful prayer mala made from tulsi beads.',}}/>
-                
-                <Card
-                product={{ id: 1, title: 'Tulsi Mala With Shri Radha ', price: 499, image: tulsi_mala_shriradha2, desc: 'Beautiful prayer mala made from tulsi beads.', }}/>
-                
-                <Card
-                product={{ id: 1, title: 'Pendant With Bihariji', price: 499, image: pendant_bihariji, desc: 'Beautiful prayer mala made from tulsi beads.', }}/>
-                
-                <Card
-                product={{ id: 1, title: 'Pendant With Krishna ', price: 499, image: pendant_krishn, desc: 'Beautiful prayer mala made from tulsi beads.', }}/>
-                
-                <Card
-                product={{ id: 1, title: 'Pendant With Writen Shri Krishna ', price: 499, image: pendant_krishn2, desc: 'Beautiful prayer mala made from tulsi beads.', }}/>
-                
-                <Card
-                product={{ id: 1, title: 'Pendant With Radha Krishna ', price: 499, image: pendant_radhakrishn, desc: 'Beautiful prayer mala made from tulsi beads.', }}/>
-                
-                <Card
-                product={{ id: 1, title: 'Pendant With Radha Krishna ', price: 499, image: pendant_radhakrishn_silver, desc: 'Beautiful prayer mala made from tulsi beads.', }}/>
-                
-                <Card
-                product={{ id: 1, title: 'Pendant With Shri Radha ', price: 499, image: pendant_shriradha, desc: 'Beautiful prayer mala made from tulsi beads.', }}/>
+      <h1 className='text-4xl font-semibold text-amber-600'><u>Store</u> / <u>स्टोर</u></h1>
 
-            </div>
-        </div>
+      <SearchFilter
+        searchQuery={searchQuery}
+        onSearchChange={setSearchQuery}
+        activeFilter={activeFilter}
+        onFilterChange={setActiveFilter}
+        filters={filters}
+      />
+    
+      <div className="flex justify-center mt-10 gap-10 flex-wrap bg-gray-200 py-10 rounded-lg">
+        {filteredItems.map(item => (
+          <Card key={item.id} product={item} />
+        ))}
+      </div>
+    </div>
     </>
   )
 }
