@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import SEO from "../Components/SEO";
 
 // image imports
-import diwali from "../assets/BihariJi4.jpg";
 import janmashtami from "../assets/BihariJi3.jpg";
 import fool_bangla_1 from "../assets/fool-bangla/fool-bangla-1.webp";
 import hariyali_teej_1 from "../assets/hariyali-teej/hariyali-teej-1.webp";

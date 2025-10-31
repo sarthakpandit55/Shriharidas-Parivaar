@@ -23,19 +23,19 @@ function Seva() {
   const [activeFilter, setActiveFilter] = useState('all');
 
   const sevaItems = useMemo(() => [
-    { id: 1, title: 'Aarti Seva', image: arti_seva, desc: 'Participate in the divine aarti ceremony.', tag: 'Best Seller', category: 'daily' },
-    { id: 2, title: 'Bundi Seva', image: bondi_seva, desc: 'Offer sweet bundi prasad.', tag: 'Popular', category: 'food' },
-    { id: 3, title: 'Chandan Seva', image: chandan_seva, desc: 'Sacred sandalwood offering seva.', tag: 'Best Seller', category: 'daily' },
-    { id: 4, title: 'Chapan Bhog', image: chapan_bhog, desc: '56 different food items offered as bhog.', category: 'food' },
-    { id: 5, title: 'Chaveni Bhog', image: chaveni_bhog, desc: 'Special chaveni prasad offering.', category: 'festival' },
-    { id: 6, title: 'Deepak Seva', image: deepak_seva, desc: 'Light lamp offering seva.', category: 'daily' },
-    { id: 7, title: 'Deepdan Seva', image: deepdan_seva, desc: 'Sacred lamp donation seva.', category: 'festival' },
-    { id: 8, title: 'Deeran Poojan', image: deeran_poojan, desc: 'Special poojan ceremony.', category: 'daily' },
-    { id: 9, title: 'Fool Tulsi Chandan Seva', image: fool_tulsi_chandan_seva, desc: 'Complete flower and chandan seva.', tag: 'Special', category: 'daily' },
-    { id: 10, title: 'Paratha Prashadi', image: paratha_prashadi, desc: 'Sacred paratha prasad.', category: 'food' },
-    { id: 11, title: 'Raj Bhog', image: raj_bhog, desc: 'Royal food offering seva.', tag: 'Special', category: 'food' },
-    { id: 12, title: 'Saiya Seva', image: saiya_seva, desc: 'Traditional saiya seva offering.', category: 'special' },
-    { id: 13, title: 'Uthapyan Bhog', image: uthapyanbhog, desc: 'Morning prasad offering.', category: 'food' }
+    { id: 1, title: 'Aarti Seva', image: arti_seva, desc: 'Aarti fool tulsi chandan trista seva poojan.', tag: 'Best Seller', category: 'daily' },
+    { id: 2, title: 'Bundi Seva', image: bondi_seva, desc: 'Bundi prashad for shri bankey bihari ji.', tag: 'Popular', category: 'food' },
+    { id: 3, title: 'Chandan Seva', image: chandan_seva, desc: 'Chandan seva for shri bankey bihari ji.', tag: 'Best Seller', category: 'daily' },
+    { id: 4, title: 'Chapan Bhog', image: chapan_bhog, desc: '56 bhog prashadi for shri bankey bihari ji.', category: 'food' },
+    { id: 5, title: 'Chaveni Bhog', image: chaveni_bhog, desc: 'Chaveni prasad for shri bankey bihari ji.', category: 'festival' },
+    { id: 6, title: 'Deepak Seva', image: deepak_seva, desc: 'Deep daan poojan.', category: 'daily' },
+    { id: 7, title: 'Deepdan Seva', image: deepdan_seva, desc: 'Deepdan seva to shri bankey bihari ji 11, 21, 51.', category: 'festival' },
+    { id: 8, title: 'Deeran Poojan', image: deeran_poojan, desc: 'Shri Bankey bihari ji dheeri upasana.', category: 'daily' },
+    { id: 9, title: 'Fool Tulsi Chandan Seva', image: fool_tulsi_chandan_seva, desc: 'Fool and chandan seva for shri bankey bihari ji.', tag: 'Special', category: 'daily' },
+    { id: 10, title: 'Paratha Prashadi', image: paratha_prashadi, desc: 'Paratha prasad for shri bankey bihari ji.', category: 'food' },
+    { id: 11, title: 'Raj Bhog', image: raj_bhog, desc: 'Poodi, sabji, dhai bada, kachodi, mithai,etc seva for shri bankay bihari ji.', tag: 'Special', category: 'food' },
+    { id: 12, title: 'Saiya Seva', image: saiya_seva, desc: 'Saiya poojan for shri bankey bihari ji sain seva.', category: 'special' },
+    { id: 13, title: 'Uthapyan Bhog', image: uthapyanbhog, desc: 'Pakodi, Dhaibada, Bida Parshadi for shri bankey bihari ji.', category: 'food' }
   ], []);
 
   const filters = [

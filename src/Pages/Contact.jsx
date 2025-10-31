@@ -109,7 +109,7 @@
                 <span className="font-semibold lg:text-3xl text-md">shriharidas_parivaar</span>
               </div>
               </a>
-              <a href="https://www.youtube.com/@laddu_bihariji_pujari">
+              <a href="https://www.youtube.com/@shriharidas_parivaar" target='blank'>
               <div className="flex items-center gap-3">
                 <FaYoutube className="lg:w-15 lg:h-15 h-10 w-10 text-red-500" />
                 <span className="font-semibold lg:text-3xl text-md">shriharidas_parivaar</span>
