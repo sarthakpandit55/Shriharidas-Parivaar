@@ -14,7 +14,7 @@ function Footer() {
     const formData = new FormData(event.target);
 
     // 🔑 Replace with your actual Web3Forms access key
-    formData.append("access_key", "YOUR_ACCESS_KEY_HERE");
+    formData.append("access_key", "027fca96-c7be-4cb6-9ec2-f7636cb3729e");
 
     const response = await fetch("https://api.web3forms.com/submit", {
       method: "POST",
