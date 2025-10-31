@@ -13,29 +13,48 @@
     const [result, setResult] = useState("");
     
       const onSubmit = async (event) => {
-        event.preventDefault();
-        setResult("Sending...");
-        const formData = new FormData(event.target);
+    event.preventDefault();
+    setResult("Sending...");
+    const formData = new FormData(event.target);
+
+    // Add your Web3Forms access key - make sure this is your latest key from web3forms.com
+    formData.append("access_key", "027fca96-c7be-4cb6-9ec2-f7636cb3729e");
+
+    // Add the reply_to field to ensure you receive replies
+    formData.append("reply_to", formData.get("email"));
     
-        // 🔑 Replace with your actual Web3Forms access key
-        formData.append("access_key", "027fca96-c7be-4cb6-9ec2-f7636cb3729e");
-    
-        const response = await fetch("https://api.web3forms.com/submit", {
-          method: "POST",
-          body: formData,
-        });
-    
-        const data = await response.json();
-    
-        if (data.success) {
-          setResult("✅ Form submitted successfully!");
-          event.target.reset();
-          setTimeout(() => setResult(""), 4000);
-        } else {
-          console.log("Error:", data);
-          setResult("❌ Something went wrong. Please try again.");
-        }
-      };
+    // Log the form data for debugging
+    console.log("Form Data:", Object.fromEntries(formData));
+
+    try {
+      console.log("Submitting to Web3Forms...");
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData
+      });
+
+      const data = await response.json();
+      console.log("Web3Forms Response:", data);
+
+      if (data.success) {
+        // Add more details to success message
+        setResult(`✅ Form submitted successfully! Submission ID: ${data.submission_id}`);
+        event.target.reset();
+        setTimeout(() => setResult(""), 5000);
+        
+        // Show user where to check for the email
+        alert("Please check your email inbox and spam folder. It may take a few minutes for the email to arrive.");
+      } else {
+        console.error("Submission Error Details:", data);
+        setResult(`❌ Error: ${data.message || "Something went wrong. Please try again."}`);
+        setTimeout(() => setResult(""), 5000);
+      }
+    } catch (error) {
+      console.error("Network Error Details:", error);
+      setResult("❌ Network error. Please check your connection and try again.");
+      setTimeout(() => setResult(""), 3000);
+    }
+  };
     
 
     return (
@@ -137,31 +156,55 @@
       {/* Form */}
       <div className="bg-white rounded-xl shadow-lg p-5 md:p-10 w-full md:w-[400px]">
         <form onSubmit={onSubmit}>
+          <input type="hidden" name="subject" value="New Contact Form Submission - Shri Haridas Parivaar" />
+          <input type="hidden" name="from_name" value="Shri Haridas Parivaar Website" />
+          <input type="checkbox" name="botcheck" className="hidden" style={{ display: 'none' }} />
+          
           <label className="block mb-2 font-semibold text-gray-700">Name</label>
           <input type="text"
                 name="name"
-                placeholder="name"
-                required className="w-full border-2 border-gray-300 p-2 rounded-md mb-5 focus:outline-none focus:ring-2 focus:ring-amber-500"/>
+                placeholder="Enter your name"
+                required 
+                className="w-full border-2 border-gray-300 p-2 rounded-md mb-5 focus:outline-none focus:ring-2 focus:ring-amber-500"/>
 
           <label className="block mb-2 font-semibold text-gray-700">Mobile Number</label>
-          <input type="text"
+          <input type="tel"
                 name="mobile"
-                placeholder="mobile number"
-                required className="w-full border-2 border-gray-300 p-2 rounded-md mb-5 focus:outline-none focus:ring-2 focus:ring-amber-500"/>
+                placeholder="Enter your mobile number"
+                pattern="[0-9]{10}"
+                required 
+                className="w-full border-2 border-gray-300 p-2 rounded-md mb-5 focus:outline-none focus:ring-2 focus:ring-amber-500"/>
 
           <label className="block mb-2 font-semibold text-gray-700">Email</label>
           <input type="email"
                 name="email"
-                placeholder="email"
-                required className="w-full border-2 border-gray-300 p-2 rounded-md mb-5 focus:outline-none focus:ring-2 focus:ring-amber-500"/>
+                placeholder="Enter your email address"
+                required 
+                className="w-full border-2 border-gray-300 p-2 rounded-md mb-5 focus:outline-none focus:ring-2 focus:ring-amber-500"/>
 
-          <button type="submit" className="bg-amber-600 hover:bg-amber-700 text-white font-semibold w-full rounded-lg p-2 transition">
-            Send
+          <label className="block mb-2 font-semibold text-gray-700">Message</label>
+          <textarea
+                name="message"
+                placeholder="Enter your message"
+                rows="4"
+                required 
+                className="w-full border-2 border-gray-300 p-2 rounded-md mb-5 focus:outline-none focus:ring-2 focus:ring-amber-500"></textarea>
+
+          <button type="submit" 
+                  disabled={result === "Sending..."} 
+                  className="bg-amber-600 hover:bg-amber-700 text-white font-semibold w-full rounded-lg p-2 transition disabled:opacity-70 disabled:cursor-not-allowed">
+            {result === "Sending..." ? "Sending..." : "Send Message"}
           </button>
         </form>
         {result && (
-              <p className="text-center text-sm text-gray-700 mt-3">{result}</p>
-            )}
+          <p className={`text-center text-sm mt-3 ${
+            result.includes("✅") ? "text-green-600" : 
+            result.includes("❌") ? "text-red-600" : 
+            "text-gray-700"
+          }`}>
+            {result}
+          </p>
+        )}
       </div>
     </div>
   </div>

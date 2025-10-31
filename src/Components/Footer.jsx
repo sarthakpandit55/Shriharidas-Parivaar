@@ -13,23 +13,38 @@ function Footer() {
     setResult("Sending...");
     const formData = new FormData(event.target);
 
-    // 🔑 Replace with your actual Web3Forms access key
+    // Add your Web3Forms access key
     formData.append("access_key", "027fca96-c7be-4cb6-9ec2-f7636cb3729e");
 
-    const response = await fetch("https://api.web3forms.com/submit", {
-      method: "POST",
-      body: formData,
-    });
+    // Add the reply_to field to ensure you receive replies
+    formData.append("reply_to", formData.get("email"));
 
-    const data = await response.json();
+    // Log the form data for debugging
+    console.log("Footer Form Data:", Object.fromEntries(formData));
 
-    if (data.success) {
-      setResult("✅ Form submitted successfully!");
-      event.target.reset();
-      setTimeout(() => setResult(""), 4000);
-    } else {
-      console.log("Error:", data);
-      setResult("❌ Something went wrong. Please try again.");
+    try {
+      console.log("Submitting to Web3Forms...");
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData
+      });
+
+      const data = await response.json();
+      console.log("Web3Forms Response:", data);
+
+      if (data.success) {
+        setResult(`✅ Message sent successfully!`);
+        event.target.reset();
+        setTimeout(() => setResult(""), 5000);
+      } else {
+        console.error("Submission Error Details:", data);
+        setResult(`❌ Error: ${data.message || "Please try again."}`);
+        setTimeout(() => setResult(""), 5000);
+      }
+    } catch (error) {
+      console.error("Network Error Details:", error);
+      setResult("❌ Connection error. Please try again.");
+      setTimeout(() => setResult(""), 3000);
     }
   };
 
@@ -173,20 +188,25 @@ function Footer() {
           <h1 className="text-2xl mb-5 font-semibold">Reach Us :</h1>
           <div className="bg-white text-black p-6 rounded-xl shadow-lg max-w-sm">
             <form onSubmit={onSubmit} className="flex flex-col">
+              <input type="hidden" name="subject" value="New Footer Contact Form - Shri Haridas Parivaar" />
+              <input type="hidden" name="from_name" value="Shri Haridas Parivaar Website Footer" />
+              <input type="checkbox" name="botcheck" className="hidden" style={{ display: 'none' }} />
+
               <label className="mb-1 font-medium">Name</label>
               <input
                 type="text"
                 name="name"
-                placeholder="name"
+                placeholder="Enter your name"
                 required
                 className="w-full border-2 border-gray-300 p-2 rounded-md mb-4 focus:outline-none focus:ring-2 focus:ring-amber-500"
               />
 
               <label className="mb-1 font-medium">Mobile Number</label>
               <input
-                type="text"
+                type="tel"
                 name="mobile"
-                placeholder="mobile number"
+                placeholder="Enter your mobile number"
+                pattern="[0-9]{10}"
                 required
                 className="w-full border-2 border-gray-300 p-2 rounded-md mb-4 focus:outline-none focus:ring-2 focus:ring-amber-500"
               />
@@ -195,20 +215,36 @@ function Footer() {
               <input
                 type="email"
                 name="email"
-                placeholder="email"
+                placeholder="Enter your email address"
                 required
-                className="w-full border-2 border-gray-300 p-2 rounded-md mb-6 focus:outline-none focus:ring-2 focus:ring-amber-500"
+                className="w-full border-2 border-gray-300 p-2 rounded-md mb-4 focus:outline-none focus:ring-2 focus:ring-amber-500"
               />
+
+              <label className="mb-1 font-medium">Message</label>
+              <textarea
+                name="message"
+                placeholder="Enter your message"
+                rows="3"
+                required
+                className="w-full border-2 border-gray-300 p-2 rounded-md mb-4 focus:outline-none focus:ring-2 focus:ring-amber-500"
+              ></textarea>
 
               <button
                 type="submit"
-                className="bg-amber-600 hover:bg-amber-700 text-white font-semibold rounded-lg py-2 transition"
+                disabled={result === "Sending..."}
+                className="bg-amber-600 hover:bg-amber-700 text-white font-semibold rounded-lg py-2 transition disabled:opacity-70 disabled:cursor-not-allowed"
               >
-                Send
+                {result === "Sending..." ? "Sending..." : "Send Message"}
               </button>
             </form>
             {result && (
-              <p className="text-center text-sm text-gray-700 mt-3">{result}</p>
+              <p className={`text-center text-sm mt-3 ${
+                result.includes("✅") ? "text-green-600" : 
+                result.includes("❌") ? "text-red-600" : 
+                "text-gray-700"
+              }`}>
+                {result}
+              </p>
             )}
           </div>
         </div>
